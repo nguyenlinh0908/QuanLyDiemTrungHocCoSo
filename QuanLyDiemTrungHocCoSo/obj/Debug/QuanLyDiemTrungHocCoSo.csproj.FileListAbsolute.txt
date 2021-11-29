@@ -1,0 +1,12 @@
+E:\btlc#\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.exe.config
+E:\btlc#\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.exe
+E:\btlc#\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.pdb
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.AssemblyReference.cache
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.Properties.Resources.resources
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.GenerateResource.cache
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.CoreCompileInputs.cache
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.exe
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.pdb
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.HocSinh.resources
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.DSHocSinhtheolop.resources
+E:\btlc#\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.ThongtinchitietHocSinh.resources
