@@ -17,7 +17,7 @@ namespace QuanLyDiemTrungHocCoSo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new utils.UScore());
-            Application.Run(new Form1());
+            Application.Run(new utils.UHomePage());
          //   Application.Run(new utils.UTeacher());
         }
     }

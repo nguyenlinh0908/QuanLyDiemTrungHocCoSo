@@ -48,7 +48,6 @@ D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI.FluentTheme.v2.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI.Toolkit.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.AssemblyReference.cache
-D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.Form1.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.Properties.Resources.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UScore.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UTeacher.resources
@@ -56,3 +55,4 @@ D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLy
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.CoreCompileInputs.cache
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.exe
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.pdb
+D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UHomePage.resources
