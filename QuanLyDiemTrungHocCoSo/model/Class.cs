@@ -27,6 +27,6 @@ namespace QuanLyDiemTrungHocCoSo.model
         public override void editObject()
         {
             throw new NotImplementedException();
-        } 
+        }       
     }
 }

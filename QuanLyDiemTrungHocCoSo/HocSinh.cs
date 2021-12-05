@@ -20,10 +20,10 @@ namespace QuanLyDiemTrungHocCoSo
         }
         private DataTable getHocSinh()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["QuanLyDiem"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
             using (SqlConnection Cnn = new SqlConnection(connectionString))
             {
-                using (SqlCommand Cmd = new SqlCommand("spHocSinh_Get", Cnn))
+                using (SqlCommand Cmd = new SqlCommand("proGetStudents", Cnn))
                 {
                     Cmd.CommandType = CommandType.StoredProcedure;
                     using (SqlDataAdapter da = new SqlDataAdapter(Cmd))
@@ -56,7 +56,7 @@ namespace QuanLyDiemTrungHocCoSo
         //xong tìm kiếm
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["QuanLyDiem"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
             string timkiem = "SELECT *FROM tblHocSinh WHERE sHoTen = @sHoTen";
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
@@ -88,7 +88,7 @@ namespace QuanLyDiemTrungHocCoSo
         //xong thêm
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["QuanLyDiem"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
@@ -118,7 +118,7 @@ namespace QuanLyDiemTrungHocCoSo
         //xong sửa
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["QuanLyDiem"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
             using(SqlConnection Cnn = new SqlConnection(connectionString))
             {
                 using (SqlCommand Cmd = new SqlCommand("", Cnn))
@@ -175,7 +175,7 @@ namespace QuanLyDiemTrungHocCoSo
         //xong xóa
         private void btnXoa_Click(object sender, EventArgs e)
         { 
-            string connectionString = ConfigurationManager.ConnectionStrings["QuanLyDiem"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
             string delete = "DELETE FROM tblHocSinh WHERE PK_sMaHocSinh = @PK_sMaHocSinh";
 
             using (SqlConnection cnn = new SqlConnection(connectionString))

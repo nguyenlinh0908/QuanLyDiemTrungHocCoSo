@@ -14,7 +14,7 @@ namespace QuanLyDiemTrungHocCoSo.sdk
         public string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
         public abstract void addObject();
         public abstract void editObject();
-        public void removeObject(string proc, string id) {         
+        public void queryObjectWithId(string proc, string id) {         
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
@@ -38,6 +38,27 @@ namespace QuanLyDiemTrungHocCoSo.sdk
                     {
                         commandObject.CommandType = CommandType.StoredProcedure;
                         commandObject.CommandText = proc;
+                        DataTable dataTableObject = new DataTable(table);
+                        adapterObject.Fill(dataTableObject);
+                        return dataTableObject;
+                    }
+                }
+            }
+        }
+        public DataTable objectListWithID(string proc, string table, string id)
+        {
+            using (SqlConnection connectionObject = new SqlConnection(connectionString))
+            {
+                using (SqlCommand commandObject = new SqlCommand("", connectionObject))
+                {
+                    using (SqlDataAdapter adapterObject = new SqlDataAdapter(commandObject))
+                    {
+                        connectionObject.Open();
+                        commandObject.CommandType = CommandType.StoredProcedure;
+                        commandObject.CommandText = proc;
+                        commandObject.Parameters.AddWithValue("@id", id);
+                        commandObject.ExecuteNonQuery();
+                        connectionObject.Close();                    
                         DataTable dataTableObject = new DataTable(table);
                         adapterObject.Fill(dataTableObject);
                         return dataTableObject;

@@ -31,7 +31,10 @@ namespace QuanLyDiemTrungHocCoSo.utils
         {
             this.tabControlHomePage = new System.Windows.Forms.TabControl();
             this.tab_headTeacher = new System.Windows.Forms.TabPage();
-            this.tabAccountManager = new System.Windows.Forms.TabPage();
+            this.btnThemHocSinh = new System.Windows.Forms.Button();
+            this.dgv_classSchoolYear = new System.Windows.Forms.DataGridView();
+            this.cl_classList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_headTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.cbx_schoolYear = new System.Windows.Forms.ComboBox();
@@ -41,9 +44,14 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_teacher = new System.Windows.Forms.ComboBox();
             this.cbx_class = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dgv_classSchoolYear = new System.Windows.Forms.DataGridView();
-            this.cl_classList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_headTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabAccountManager = new System.Windows.Forms.TabPage();
+            this.btn_addTeacher = new System.Windows.Forms.Button();
+            this.dgv_accounts = new System.Windows.Forms.DataGridView();
+            this.cl_teachName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_permission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbx_teacherNoAccount = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,25 +63,45 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label6 = new System.Windows.Forms.Label();
             this.tb_username = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dgv_accounts = new System.Windows.Forms.DataGridView();
-            this.cl_teachName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_permission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_myClass = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dgv_classITeach = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btn_UiScore = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgv_MyStudents = new System.Windows.Forms.DataGridView();
+            this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_dateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lb_numberOfStudents = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lb_className = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cl_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_mainTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_yearSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlHomePage.SuspendLayout();
             this.tab_headTeacher.SuspendLayout();
-            this.tabAccountManager.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_classSchoolYear)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tabAccountManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_accounts)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.tab_myClass.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_classITeach)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MyStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlHomePage
             // 
             this.tabControlHomePage.Controls.Add(this.tab_headTeacher);
             this.tabControlHomePage.Controls.Add(this.tabAccountManager);
+            this.tabControlHomePage.Controls.Add(this.tab_myClass);
             this.tabControlHomePage.Location = new System.Drawing.Point(21, 12);
             this.tabControlHomePage.Name = "tabControlHomePage";
             this.tabControlHomePage.SelectedIndex = 0;
@@ -82,6 +110,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // tab_headTeacher
             // 
+            this.tab_headTeacher.Controls.Add(this.btnThemHocSinh);
             this.tab_headTeacher.Controls.Add(this.dgv_classSchoolYear);
             this.tab_headTeacher.Controls.Add(this.panel2);
             this.tab_headTeacher.Location = new System.Drawing.Point(4, 25);
@@ -92,17 +121,44 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tab_headTeacher.Text = "Giáo viên chủ nhiệm";
             this.tab_headTeacher.UseVisualStyleBackColor = true;
             // 
-            // tabAccountManager
+            // btnThemHocSinh
             // 
-            this.tabAccountManager.Controls.Add(this.dgv_accounts);
-            this.tabAccountManager.Controls.Add(this.panel3);
-            this.tabAccountManager.Location = new System.Drawing.Point(4, 25);
-            this.tabAccountManager.Name = "tabAccountManager";
-            this.tabAccountManager.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAccountManager.Size = new System.Drawing.Size(1446, 738);
-            this.tabAccountManager.TabIndex = 1;
-            this.tabAccountManager.Text = "Quản lý tài khoản";
-            this.tabAccountManager.UseVisualStyleBackColor = true;
+            this.btnThemHocSinh.Location = new System.Drawing.Point(1233, 6);
+            this.btnThemHocSinh.Name = "btnThemHocSinh";
+            this.btnThemHocSinh.Size = new System.Drawing.Size(207, 51);
+            this.btnThemHocSinh.TabIndex = 10;
+            this.btnThemHocSinh.Text = "Thêm học sinh";
+            this.btnThemHocSinh.UseVisualStyleBackColor = true;
+            this.btnThemHocSinh.Click += new System.EventHandler(this.btnThemHocSinh_Click);
+            // 
+            // dgv_classSchoolYear
+            // 
+            this.dgv_classSchoolYear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_classSchoolYear.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_classList,
+            this.cl_headTeacher});
+            this.dgv_classSchoolYear.Location = new System.Drawing.Point(6, 242);
+            this.dgv_classSchoolYear.Name = "dgv_classSchoolYear";
+            this.dgv_classSchoolYear.RowHeadersWidth = 51;
+            this.dgv_classSchoolYear.RowTemplate.Height = 24;
+            this.dgv_classSchoolYear.Size = new System.Drawing.Size(442, 469);
+            this.dgv_classSchoolYear.TabIndex = 9;
+            // 
+            // cl_classList
+            // 
+            this.cl_classList.DataPropertyName = "sTenLop";
+            this.cl_classList.HeaderText = "Lớp";
+            this.cl_classList.MinimumWidth = 6;
+            this.cl_classList.Name = "cl_classList";
+            this.cl_classList.Width = 125;
+            // 
+            // cl_headTeacher
+            // 
+            this.cl_headTeacher.DataPropertyName = "sHoTen";
+            this.cl_headTeacher.HeaderText = "Giáo viên";
+            this.cl_headTeacher.MinimumWidth = 6;
+            this.cl_headTeacher.Name = "cl_headTeacher";
+            this.cl_headTeacher.Width = 125;
             // 
             // panel2
             // 
@@ -116,7 +172,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(6, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(421, 136);
+            this.panel2.Size = new System.Drawing.Size(442, 136);
             this.panel2.TabIndex = 8;
             // 
             // label12
@@ -189,34 +245,82 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label9.TabIndex = 0;
             this.label9.Text = "Giáo viên chủ nhiệm";
             // 
-            // dgv_classSchoolYear
+            // tabAccountManager
             // 
-            this.dgv_classSchoolYear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_classSchoolYear.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cl_classList,
-            this.cl_headTeacher});
-            this.dgv_classSchoolYear.Location = new System.Drawing.Point(6, 263);
-            this.dgv_classSchoolYear.Name = "dgv_classSchoolYear";
-            this.dgv_classSchoolYear.RowHeadersWidth = 51;
-            this.dgv_classSchoolYear.RowTemplate.Height = 24;
-            this.dgv_classSchoolYear.Size = new System.Drawing.Size(408, 469);
-            this.dgv_classSchoolYear.TabIndex = 9;
+            this.tabAccountManager.Controls.Add(this.btn_addTeacher);
+            this.tabAccountManager.Controls.Add(this.dgv_accounts);
+            this.tabAccountManager.Controls.Add(this.panel3);
+            this.tabAccountManager.Location = new System.Drawing.Point(4, 25);
+            this.tabAccountManager.Name = "tabAccountManager";
+            this.tabAccountManager.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAccountManager.Size = new System.Drawing.Size(1446, 738);
+            this.tabAccountManager.TabIndex = 1;
+            this.tabAccountManager.Text = "Quản lý tài khoản";
+            this.tabAccountManager.UseVisualStyleBackColor = true;
             // 
-            // cl_classList
+            // btn_addTeacher
             // 
-            this.cl_classList.DataPropertyName = "sTenLop";
-            this.cl_classList.HeaderText = "Lớp";
-            this.cl_classList.MinimumWidth = 6;
-            this.cl_classList.Name = "cl_classList";
-            this.cl_classList.Width = 125;
+            this.btn_addTeacher.Location = new System.Drawing.Point(1083, 6);
+            this.btn_addTeacher.Name = "btn_addTeacher";
+            this.btn_addTeacher.Size = new System.Drawing.Size(195, 57);
+            this.btn_addTeacher.TabIndex = 16;
+            this.btn_addTeacher.Text = "Quản lý giáo viên";
+            this.btn_addTeacher.UseVisualStyleBackColor = true;
+            this.btn_addTeacher.Click += new System.EventHandler(this.btn_addTeacher_Click);
             // 
-            // cl_headTeacher
+            // dgv_accounts
             // 
-            this.cl_headTeacher.DataPropertyName = "sHoTen";
-            this.cl_headTeacher.HeaderText = "Giáo viên";
-            this.cl_headTeacher.MinimumWidth = 6;
-            this.cl_headTeacher.Name = "cl_headTeacher";
-            this.cl_headTeacher.Width = 125;
+            this.dgv_accounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_accounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_accounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_teachName,
+            this.cl_phoneNumber,
+            this.Column1,
+            this.cl_username,
+            this.cl_permission});
+            this.dgv_accounts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_accounts.Location = new System.Drawing.Point(3, 282);
+            this.dgv_accounts.Name = "dgv_accounts";
+            this.dgv_accounts.RowHeadersWidth = 51;
+            this.dgv_accounts.RowTemplate.Height = 24;
+            this.dgv_accounts.Size = new System.Drawing.Size(1440, 453);
+            this.dgv_accounts.TabIndex = 15;
+            this.dgv_accounts.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_accounts_CellMouseDoubleClick);
+            // 
+            // cl_teachName
+            // 
+            this.cl_teachName.DataPropertyName = "sHoTen";
+            this.cl_teachName.HeaderText = "Họ và tên";
+            this.cl_teachName.MinimumWidth = 6;
+            this.cl_teachName.Name = "cl_teachName";
+            // 
+            // cl_phoneNumber
+            // 
+            this.cl_phoneNumber.DataPropertyName = "sSDT";
+            this.cl_phoneNumber.HeaderText = "Số điện thoại";
+            this.cl_phoneNumber.MinimumWidth = 6;
+            this.cl_phoneNumber.Name = "cl_phoneNumber";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "sTenMonHoc";
+            this.Column1.HeaderText = "Chuyên môn";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // cl_username
+            // 
+            this.cl_username.DataPropertyName = "sUsername";
+            this.cl_username.HeaderText = "Tài khoản";
+            this.cl_username.MinimumWidth = 6;
+            this.cl_username.Name = "cl_username";
+            // 
+            // cl_permission
+            // 
+            this.cl_permission.DataPropertyName = "sTenQuyen";
+            this.cl_permission.HeaderText = "Quyền";
+            this.cl_permission.MinimumWidth = 6;
+            this.cl_permission.Name = "cl_permission";
             // 
             // panel3
             // 
@@ -254,12 +358,13 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // btn_signUp
             // 
-            this.btn_signUp.Location = new System.Drawing.Point(90, 135);
+            this.btn_signUp.Location = new System.Drawing.Point(262, 129);
             this.btn_signUp.Name = "btn_signUp";
-            this.btn_signUp.Size = new System.Drawing.Size(75, 23);
+            this.btn_signUp.Size = new System.Drawing.Size(89, 29);
             this.btn_signUp.TabIndex = 12;
             this.btn_signUp.Text = "Cấp";
             this.btn_signUp.UseVisualStyleBackColor = true;
+            this.btn_signUp.Click += new System.EventHandler(this.btn_signUp_Click);
             // 
             // cbx_permission
             // 
@@ -320,58 +425,210 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label5.TabIndex = 3;
             this.label5.Text = "Quản lý tài khoản";
             // 
-            // dgv_accounts
+            // tab_myClass
             // 
-            this.dgv_accounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_accounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_accounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cl_teachName,
-            this.cl_phoneNumber,
-            this.Column1,
-            this.cl_username,
-            this.cl_permission});
-            this.dgv_accounts.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_accounts.Location = new System.Drawing.Point(3, 282);
-            this.dgv_accounts.Name = "dgv_accounts";
-            this.dgv_accounts.RowHeadersWidth = 51;
-            this.dgv_accounts.RowTemplate.Height = 24;
-            this.dgv_accounts.Size = new System.Drawing.Size(1440, 453);
-            this.dgv_accounts.TabIndex = 15;
+            this.tab_myClass.Controls.Add(this.panel4);
+            this.tab_myClass.Controls.Add(this.panel1);
+            this.tab_myClass.Location = new System.Drawing.Point(4, 25);
+            this.tab_myClass.Name = "tab_myClass";
+            this.tab_myClass.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_myClass.Size = new System.Drawing.Size(1446, 738);
+            this.tab_myClass.TabIndex = 2;
+            this.tab_myClass.Text = "Quản lý giảng dạy";
+            this.tab_myClass.UseVisualStyleBackColor = true;
             // 
-            // cl_teachName
+            // panel4
             // 
-            this.cl_teachName.DataPropertyName = "sHoTen";
-            this.cl_teachName.HeaderText = "Họ và tên";
-            this.cl_teachName.MinimumWidth = 6;
-            this.cl_teachName.Name = "cl_teachName";
+            this.panel4.Controls.Add(this.dgv_classITeach);
+            this.panel4.Controls.Add(this.label13);
+            this.panel4.Controls.Add(this.btn_UiScore);
+            this.panel4.Location = new System.Drawing.Point(20, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1410, 260);
+            this.panel4.TabIndex = 9;
             // 
-            // cl_phoneNumber
+            // dgv_classITeach
             // 
-            this.cl_phoneNumber.DataPropertyName = "sSDT";
-            this.cl_phoneNumber.HeaderText = "Số điện thoại";
-            this.cl_phoneNumber.MinimumWidth = 6;
-            this.cl_phoneNumber.Name = "cl_phoneNumber";
+            this.dgv_classITeach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_classITeach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_class,
+            this.cl_mainTeacher,
+            this.cl_yearSchool});
+            this.dgv_classITeach.Location = new System.Drawing.Point(3, 111);
+            this.dgv_classITeach.Name = "dgv_classITeach";
+            this.dgv_classITeach.RowHeadersWidth = 51;
+            this.dgv_classITeach.RowTemplate.Height = 24;
+            this.dgv_classITeach.Size = new System.Drawing.Size(1404, 146);
+            this.dgv_classITeach.TabIndex = 9;
+            this.dgv_classITeach.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_classITeach_DataBindingComplete);
             // 
-            // Column1
+            // label13
             // 
-            this.Column1.DataPropertyName = "sTenMonHoc";
-            this.Column1.HeaderText = "Chuyên môn";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(202, 26);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Lớp đang giảng dạy";
             // 
-            // cl_username
+            // btn_UiScore
             // 
-            this.cl_username.DataPropertyName = "sUsername";
-            this.cl_username.HeaderText = "Tài khoản";
-            this.cl_username.MinimumWidth = 6;
-            this.cl_username.Name = "cl_username";
+            this.btn_UiScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UiScore.Location = new System.Drawing.Point(1165, 3);
+            this.btn_UiScore.Name = "btn_UiScore";
+            this.btn_UiScore.Size = new System.Drawing.Size(242, 50);
+            this.btn_UiScore.TabIndex = 8;
+            this.btn_UiScore.Text = "Nhập điểm";
+            this.btn_UiScore.UseVisualStyleBackColor = true;
+            this.btn_UiScore.Click += new System.EventHandler(this.btn_UiScore_Click);
             // 
-            // cl_permission
+            // panel1
             // 
-            this.cl_permission.DataPropertyName = "sTenQuyen";
-            this.cl_permission.HeaderText = "Quyền";
-            this.cl_permission.MinimumWidth = 6;
-            this.cl_permission.Name = "cl_permission";
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.dgv_MyStudents);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.lb_numberOfStudents);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lb_className);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(20, 272);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1410, 440);
+            this.panel1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(155, 26);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Lớp chủ nhiệm";
+            // 
+            // dgv_MyStudents
+            // 
+            this.dgv_MyStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_MyStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_MyStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_name,
+            this.cl_dateOfBirth,
+            this.cl_gender,
+            this.cl_address});
+            this.dgv_MyStudents.Location = new System.Drawing.Point(3, 113);
+            this.dgv_MyStudents.Name = "dgv_MyStudents";
+            this.dgv_MyStudents.RowHeadersWidth = 51;
+            this.dgv_MyStudents.RowTemplate.Height = 24;
+            this.dgv_MyStudents.Size = new System.Drawing.Size(1390, 346);
+            this.dgv_MyStudents.TabIndex = 5;
+            this.dgv_MyStudents.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_MyStudents_DataBindingComplete);
+            // 
+            // cl_name
+            // 
+            this.cl_name.DataPropertyName = "sHoTen";
+            this.cl_name.FillWeight = 204.9298F;
+            this.cl_name.HeaderText = "Họ và tên";
+            this.cl_name.MinimumWidth = 6;
+            this.cl_name.Name = "cl_name";
+            // 
+            // cl_dateOfBirth
+            // 
+            this.cl_dateOfBirth.DataPropertyName = "sNgaySinh";
+            this.cl_dateOfBirth.FillWeight = 49.22789F;
+            this.cl_dateOfBirth.HeaderText = "Ngày sinh";
+            this.cl_dateOfBirth.MinimumWidth = 6;
+            this.cl_dateOfBirth.Name = "cl_dateOfBirth";
+            // 
+            // cl_gender
+            // 
+            this.cl_gender.DataPropertyName = "bGioiTinh";
+            this.cl_gender.FillWeight = 42.78075F;
+            this.cl_gender.HeaderText = "Giới tính";
+            this.cl_gender.MinimumWidth = 6;
+            this.cl_gender.Name = "cl_gender";
+            // 
+            // cl_address
+            // 
+            this.cl_address.DataPropertyName = "sDiaChi";
+            this.cl_address.FillWeight = 103.0615F;
+            this.cl_address.HeaderText = "Địa chỉ";
+            this.cl_address.MinimumWidth = 6;
+            this.cl_address.Name = "cl_address";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(104, 61);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 20);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "học sinh";
+            // 
+            // lb_numberOfStudents
+            // 
+            this.lb_numberOfStudents.AutoSize = true;
+            this.lb_numberOfStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_numberOfStudents.Location = new System.Drawing.Point(71, 61);
+            this.lb_numberOfStudents.Name = "lb_numberOfStudents";
+            this.lb_numberOfStudents.Size = new System.Drawing.Size(27, 20);
+            this.lb_numberOfStudents.TabIndex = 3;
+            this.lb_numberOfStudents.Text = "36";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Sĩ số:";
+            // 
+            // lb_className
+            // 
+            this.lb_className.AutoSize = true;
+            this.lb_className.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_className.Location = new System.Drawing.Point(63, 30);
+            this.lb_className.Name = "lb_className";
+            this.lb_className.Size = new System.Drawing.Size(74, 20);
+            this.lb_className.TabIndex = 1;
+            this.lb_className.Text = "1910A03";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lớp:";
+            // 
+            // cl_class
+            // 
+            this.cl_class.DataPropertyName = "sTenLop";
+            this.cl_class.HeaderText = "Lớp";
+            this.cl_class.MinimumWidth = 6;
+            this.cl_class.Name = "cl_class";
+            this.cl_class.Width = 125;
+            // 
+            // cl_mainTeacher
+            // 
+            this.cl_mainTeacher.DataPropertyName = "sHoTen";
+            this.cl_mainTeacher.HeaderText = "Giáo viên chủ nhiệm";
+            this.cl_mainTeacher.MinimumWidth = 6;
+            this.cl_mainTeacher.Name = "cl_mainTeacher";
+            this.cl_mainTeacher.Width = 125;
+            // 
+            // cl_yearSchool
+            // 
+            this.cl_yearSchool.DataPropertyName = "sNamHoc";
+            this.cl_yearSchool.HeaderText = "Năm học";
+            this.cl_yearSchool.MinimumWidth = 6;
+            this.cl_yearSchool.Name = "cl_yearSchool";
+            this.cl_yearSchool.Width = 125;
             // 
             // UHomePage
             // 
@@ -381,16 +638,22 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Controls.Add(this.tabControlHomePage);
             this.Name = "UHomePage";
             this.Text = "UHomePage";
-            this.Load += new System.EventHandler(this.UHomePage_Load);
             this.tabControlHomePage.ResumeLayout(false);
             this.tab_headTeacher.ResumeLayout(false);
-            this.tabAccountManager.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_classSchoolYear)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_classSchoolYear)).EndInit();
+            this.tabAccountManager.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_accounts)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_accounts)).EndInit();
+            this.tab_myClass.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_classITeach)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MyStudents)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,5 +692,27 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_username;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_permission;
+        private System.Windows.Forms.TabPage tab_myClass;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lb_numberOfStudents;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_className;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgv_MyStudents;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_dateOfBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_address;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_UiScore;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnThemHocSinh;
+        private System.Windows.Forms.Button btn_addTeacher;
+        private System.Windows.Forms.DataGridView dgv_classITeach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_class;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mainTeacher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_yearSchool;
     }
 }

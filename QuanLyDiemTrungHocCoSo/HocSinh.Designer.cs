@@ -56,7 +56,6 @@ namespace QuanLyDiemTrungHocCoSo
             this.btnTimkiem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnXemchitiet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrHocSinh)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -319,15 +318,6 @@ namespace QuanLyDiemTrungHocCoSo
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnXemchitiet
             // 
             this.btnXemchitiet.Location = new System.Drawing.Point(418, 259);
@@ -344,7 +334,6 @@ namespace QuanLyDiemTrungHocCoSo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 621);
             this.Controls.Add(this.btnXemchitiet);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dgrHocSinh);
             this.Controls.Add(this.rbtNu);
@@ -400,7 +389,6 @@ namespace QuanLyDiemTrungHocCoSo
         private System.Windows.Forms.DataGridViewTextBoxColumn col5;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnXemchitiet;
     }
 }

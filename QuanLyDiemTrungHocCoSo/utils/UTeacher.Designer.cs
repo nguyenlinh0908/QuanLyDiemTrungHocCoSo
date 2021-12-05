@@ -53,10 +53,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_teacher = new System.Windows.Forms.DataGridView();
             this.cl_teacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_teacherGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_teacherDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_teacherGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_dentifycationCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_phoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_specialize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,7 +78,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // lb_teacherName
             // 
             this.lb_teacherName.AutoSize = true;
-            this.lb_teacherName.Location = new System.Drawing.Point(8, 41);
+            this.lb_teacherName.Location = new System.Drawing.Point(13, 36);
             this.lb_teacherName.Name = "lb_teacherName";
             this.lb_teacherName.Size = new System.Drawing.Size(65, 16);
             this.lb_teacherName.TabIndex = 1;
@@ -85,7 +86,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // tb_teacherName
             // 
-            this.tb_teacherName.Location = new System.Drawing.Point(79, 41);
+            this.tb_teacherName.Location = new System.Drawing.Point(101, 36);
             this.tb_teacherName.Name = "tb_teacherName";
             this.tb_teacherName.Size = new System.Drawing.Size(178, 21);
             this.tb_teacherName.TabIndex = 2;
@@ -110,7 +111,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             this.dtp_dateOfBirth.CustomFormat = "dd/MM/yyyy";
             this.dtp_dateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_dateOfBirth.Location = new System.Drawing.Point(79, 68);
+            this.dtp_dateOfBirth.Location = new System.Drawing.Point(101, 68);
             this.dtp_dateOfBirth.Name = "dtp_dateOfBirth";
             this.dtp_dateOfBirth.Size = new System.Drawing.Size(178, 21);
             this.dtp_dateOfBirth.TabIndex = 5;
@@ -118,7 +119,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // lb_dateofBirth
             // 
             this.lb_dateofBirth.AutoSize = true;
-            this.lb_dateofBirth.Location = new System.Drawing.Point(8, 68);
+            this.lb_dateofBirth.Location = new System.Drawing.Point(10, 68);
             this.lb_dateofBirth.Name = "lb_dateofBirth";
             this.lb_dateofBirth.Size = new System.Drawing.Size(68, 16);
             this.lb_dateofBirth.TabIndex = 6;
@@ -128,7 +129,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             this.rdb_gender1.AutoSize = true;
             this.rdb_gender1.Checked = true;
-            this.rdb_gender1.Location = new System.Drawing.Point(79, 96);
+            this.rdb_gender1.Location = new System.Drawing.Point(101, 100);
             this.rdb_gender1.Name = "rdb_gender1";
             this.rdb_gender1.Size = new System.Drawing.Size(58, 20);
             this.rdb_gender1.TabIndex = 7;
@@ -139,7 +140,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // rdb_gender0
             // 
             this.rdb_gender0.AutoSize = true;
-            this.rdb_gender0.Location = new System.Drawing.Point(143, 95);
+            this.rdb_gender0.Location = new System.Drawing.Point(165, 100);
             this.rdb_gender0.Name = "rdb_gender0";
             this.rdb_gender0.Size = new System.Drawing.Size(46, 20);
             this.rdb_gender0.TabIndex = 8;
@@ -150,7 +151,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // lb_gender
             // 
             this.lb_gender.AutoSize = true;
-            this.lb_gender.Location = new System.Drawing.Point(8, 98);
+            this.lb_gender.Location = new System.Drawing.Point(13, 100);
             this.lb_gender.Name = "lb_gender";
             this.lb_gender.Size = new System.Drawing.Size(55, 16);
             this.lb_gender.TabIndex = 9;
@@ -284,10 +285,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.dgv_teacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_teacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_teacherName,
-            this.cl_teacherGender,
             this.cl_teacherDateOfBirth,
-            this.cl_address,
+            this.cl_teacherGender,
+            this.cl_dentifycationCard,
             this.cl_phoneNumber,
+            this.cl_address,
             this.cl_specialize});
             this.dgv_teacher.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_teacher.Location = new System.Drawing.Point(0, 257);
@@ -296,6 +298,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.dgv_teacher.RowTemplate.Height = 24;
             this.dgv_teacher.Size = new System.Drawing.Size(700, 165);
             this.dgv_teacher.TabIndex = 22;
+            this.dgv_teacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_teacher_CellClick);
             // 
             // cl_teacherName
             // 
@@ -305,14 +308,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_teacherName.Name = "cl_teacherName";
             this.cl_teacherName.Width = 125;
             // 
-            // cl_teacherGender
-            // 
-            this.cl_teacherGender.DataPropertyName = "bGioiTinh";
-            this.cl_teacherGender.HeaderText = "Giới tính";
-            this.cl_teacherGender.MinimumWidth = 6;
-            this.cl_teacherGender.Name = "cl_teacherGender";
-            this.cl_teacherGender.Width = 125;
-            // 
             // cl_teacherDateOfBirth
             // 
             this.cl_teacherDateOfBirth.DataPropertyName = "sNgaySinh";
@@ -321,13 +316,21 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_teacherDateOfBirth.Name = "cl_teacherDateOfBirth";
             this.cl_teacherDateOfBirth.Width = 125;
             // 
-            // cl_address
+            // cl_teacherGender
             // 
-            this.cl_address.DataPropertyName = "sQueQuan";
-            this.cl_address.HeaderText = "Quê quán";
-            this.cl_address.MinimumWidth = 6;
-            this.cl_address.Name = "cl_address";
-            this.cl_address.Width = 125;
+            this.cl_teacherGender.DataPropertyName = "bGioiTinh";
+            this.cl_teacherGender.HeaderText = "Giới tính";
+            this.cl_teacherGender.MinimumWidth = 6;
+            this.cl_teacherGender.Name = "cl_teacherGender";
+            this.cl_teacherGender.Width = 125;
+            // 
+            // cl_dentifycationCard
+            // 
+            this.cl_dentifycationCard.DataPropertyName = "sCMND";
+            this.cl_dentifycationCard.HeaderText = "CMND";
+            this.cl_dentifycationCard.MinimumWidth = 6;
+            this.cl_dentifycationCard.Name = "cl_dentifycationCard";
+            this.cl_dentifycationCard.Width = 125;
             // 
             // cl_phoneNumber
             // 
@@ -336,6 +339,14 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_phoneNumber.MinimumWidth = 6;
             this.cl_phoneNumber.Name = "cl_phoneNumber";
             this.cl_phoneNumber.Width = 125;
+            // 
+            // cl_address
+            // 
+            this.cl_address.DataPropertyName = "sQueQuan";
+            this.cl_address.HeaderText = "Quê quán";
+            this.cl_address.MinimumWidth = 6;
+            this.cl_address.Name = "cl_address";
+            this.cl_address.Width = 125;
             // 
             // cl_specialize
             // 
@@ -392,10 +403,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgv_teacher;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_teacherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_teacherGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_teacherDateOfBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_teacherGender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_dentifycationCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_phoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_address;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_specialize;
     }
 }

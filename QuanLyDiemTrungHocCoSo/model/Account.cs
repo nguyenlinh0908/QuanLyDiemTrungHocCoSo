@@ -53,7 +53,46 @@ namespace QuanLyDiemTrungHocCoSo.model
 
         public override void editObject()
         {
-            throw new NotImplementedException();
-        }     
+            using (SqlConnection cnn = new SqlConnection(connectionString)) // var connectionString get from abstract class MainService
+            {
+                using (SqlCommand cmd = new SqlCommand("", cnn))
+                {
+                    cnn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "procForgotPassword";
+
+                    cmd.Parameters.AddWithValue("@accountID", this.accountID);
+                    cmd.Parameters.AddWithValue("@password", this.password);
+
+                    cmd.ExecuteNonQuery();
+                    cnn.Close();
+                }
+            }
+        }  
+        
+        public DataTable signInProcess(string username, string password)
+        {
+            using (SqlConnection cnn = new SqlConnection(connectionString)) // var connectionString get from abstract class MainService
+            {
+                using (SqlCommand cmd = new SqlCommand("", cnn))
+                {                  
+                    using (SqlDataAdapter adapterSignIn = new SqlDataAdapter(cmd))
+                    {
+                        cnn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "procSignIn";
+
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+
+                        cmd.ExecuteNonQuery();
+                        cnn.Close();
+                        DataTable datatableAccountSigned = new DataTable("tblAccountSigned");
+                        adapterSignIn.Fill(datatableAccountSigned);
+                        return datatableAccountSigned;
+                    }
+                }
+            }
+        }
     }
 }

@@ -13,16 +13,34 @@ namespace QuanLyDiemTrungHocCoSo.utils
 {
     public partial class UHomePage : Form
     {
-        public UHomePage()
+        private string accountID, permission;
+        public UHomePage(string permission, string accountID)
         {
+
             InitializeComponent();
+            switch (permission)
+            {
+                case "q0": // admin permission
+                    this.accountID = accountID;
+                    this.permission = permission;
+                    tabControlHomePage.Controls.Remove(tab_myClass);
+                    displayTeacher();
+                    displayHeadTeacher();
+                    break;
+                case "q1": //user permission
+                    this.accountID = accountID;
+                    this.permission = permission;
+                    tabControlHomePage.Controls.Remove(tabAccountManager);
+                    tabControlHomePage.Controls.Remove(tab_headTeacher);
+                    displayMyStudents();
+                    displayClassITeach();
+                    break;
+                default:
+                    break;
+            }
         }
 
-        private void UHomePage_Load(object sender, EventArgs e)
-        {
-            displayTeacher();
-            displayHeadTeacher();
-        }   
+    
         private void displayTeacher()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
@@ -74,17 +92,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             username = tb_username.Text.Trim();
             password = tb_password.Text.Trim();
             permissionID = cbx_permission.SelectedValue.ToString();
-            MessageBox.Show(permissionID);
             Random rnd = new Random();
             string accountID = String.Format("tk{0}", rnd.Next(0, 9999).ToString());
             model.Account account = new model.Account(accountID, username, password, teacherID, permissionID);
             account.addObject();
-        }
-        private void btn_signUp_Click(object sender, EventArgs e)
-        {
-            signUpAccount();
-            displayTeacher();
-        }
+        }        
         private void displayHeadTeacher()
         {
             model.Teacher teacher = new model.Teacher();
@@ -138,6 +150,94 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void dgv_classSchoolYear_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             LoadSerial(dgv_classSchoolYear);
-        }        
+        }
+
+        private void dgv_MyStudents_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            LoadSerial(dgv_MyStudents);
+        }
+
+        private void btn_UiScore_Click(object sender, EventArgs e)
+        {
+            DataView dataViewClass = (DataView)dgv_classITeach.DataSource;
+            DataRowView dataRowViewClass = dataViewClass[dgv_classITeach.CurrentRow.Index];
+            string classSubjectID = dataRowViewClass["PK_sMaLopMon"].ToString();
+            string myclass = dataRowViewClass["sTenLop"].ToString();
+            string subject = dataRowViewClass["sTenMonHoc"].ToString();
+            string classSchoolYear = dataRowViewClass["PK_sMaLopNamHoc"].ToString();
+            utils.UScore uScore = new utils.UScore(myclass, subject, classSubjectID, classSchoolYear);
+            uScore.Show();
+        }
+
+        private void btnThemHocSinh_Click(object sender, EventArgs e)
+        {
+            HocSinh hocSinh = new HocSinh();
+            hocSinh.Show();
+           
+        }
+
+        private void btn_addTeacher_Click(object sender, EventArgs e)
+        {
+            utils.UTeacher uTeacher = new utils.UTeacher();
+            uTeacher.Show();
+        }
+
+        private void btn_signUp_Click(object sender, EventArgs e)
+        {
+            signUpAccount();
+            displayTeacher();
+        }
+
+        private void dgv_accounts_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+         
+            DataView dataViewTeacher = (DataView)dgv_accounts.DataSource;
+            DataRowView dataRowViewTeacher = dataViewTeacher[dgv_accounts.CurrentRow.Index];
+            string accountID = dataRowViewTeacher["PK_sMaTaiKhoan"].ToString();
+            string teacherName = dataRowViewTeacher["sHoTen"].ToString();
+            string username = dataRowViewTeacher["sUsername"].ToString();
+            utils.UForgotPassword uForgotPassword = new utils.UForgotPassword(accountID, teacherName, username);
+            uForgotPassword.Show();
+        }
+
+
+
+
+        // thong tin lop minh chu nhiem
+        private void displayMyStudents() // hien thi danh sach nhưng hoc sinh minh chu nhiem
+        {
+            model.Student myClass = new model.Student();
+            using(DataTable myStudents = myClass.studentListMyClass(this.accountID))
+            {
+                lb_numberOfStudents.Text = myStudents.Rows.Count.ToString();
+                lb_className.Text = myStudents.Rows[0]["sTenLop"].ToString();
+                DataView myStudentsView = new DataView(myStudents);
+                dgv_MyStudents.AutoGenerateColumns = false;
+                dgv_MyStudents.ReadOnly = true;
+                dgv_MyStudents.DataSource = myStudentsView;
+            }
+        }
+
+        private void dgv_classITeach_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            LoadSerial(dgv_classITeach);
+
+        }
+
+
+
+        // Quản lý giảng dạy
+        private void displayClassITeach()
+        {
+            model.Class classITeach = new model.Class();
+            using (DataTable myClass = classITeach.objectListWithID("procClassSubjectWithAccount", "tblClassSubjectWithID", this.accountID))
+            {              
+                DataView myClassView = new DataView(myClass);
+                dgv_classITeach.AutoGenerateColumns = false;
+                dgv_classITeach.ReadOnly = true;
+                dgv_classITeach.DataSource = myClassView;
+            }
+            
+        }
     }
 }

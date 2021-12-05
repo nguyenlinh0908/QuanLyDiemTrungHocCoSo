@@ -16,12 +16,10 @@ namespace QuanLyDiemTrungHocCoSo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-          //  Application.Run(new utils.UScore());
-            Application.Run(new utils.UHomePage());
-         //  Application.Run(new utils.UTeacher());
-           // Application.Run(new DSHocSinhtheolop());
-          //  Application.Run(new HocSinh());
-
+            Application.Run(new utils.USignIn());
+        //    Application.Run(new utils.UScore());
+            //Application.Run(new DSHocSinhtheolop());
+            //Application.Run(new HocSinh());
         }
     }
 }

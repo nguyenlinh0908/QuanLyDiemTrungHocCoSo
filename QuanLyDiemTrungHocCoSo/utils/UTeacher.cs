@@ -107,32 +107,60 @@ namespace QuanLyDiemTrungHocCoSo.utils
 
             model.Teacher teacher = new model.Teacher();
             string teacherID = dataRowViewTeacher["PK_sMaGiaoVien"].ToString();
-            teacher.removeObject("procRemoveTeacher", teacherID);
+            teacher.queryObjectWithId("procRemoveTeacher", teacherID);
             displayTeachList();
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            DataView teacherView = (DataView)dgv_teacher.DataSource;
-            DataRowView teacherRow = teacherView[dgv_teacher.CurrentRow.Index];
-      
-            if (object.Equals(teacherRow["bGioiTinh"], "Nam"))
-            {
-                rdb_gender1.Checked = true;
-            }
+            string name, dateOfBirth, phoneNumber, address, identitfycationCard, specialize;
+            byte gender = 1;
+
+            name = tb_teacherName.Text;
+            dateOfBirth = dtp_dateOfBirth.Text;
+            phoneNumber = tb_phoneNumber.Text;
+            address = tb_address.Text;
+            identitfycationCard = tb_identifycationCard.Text;
+
+            specialize = cbx_specialize.SelectedValue.ToString();
+            name = checkEmptyString(name, lb_teacherName.Text);
+            identitfycationCard = checkEmptyString(identitfycationCard, lb_identifycationCard.Text);
+
+            DataView dataViewTeacher = (DataView)dgv_teacher.DataSource;
+            DataRowView dataRowViewTeacher = dataViewTeacher[dgv_teacher.CurrentRow.Index];
+            string teacherID = dataRowViewTeacher["PK_sMaGiaoVien"].ToString();
+
+            bool isMale = rdb_gender1.Checked; // check radio button had checked
+            if (isMale)
+                gender = 1; // 1 is male
             else
+                gender = 0; // 0 is female
+          
+            model.Teacher teacher = new model.Teacher(teacherID, name, dateOfBirth, gender, address, phoneNumber, identitfycationCard, specialize);
+            teacher.editObject();
+            displayTeachList();
+        }
+
+        private void dgv_teacher_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgv_teacher[0, e.RowIndex].Value.ToString() != "")
             {
-                rdb_gender0.Checked = true;
+                tb_teacherName.Text = dgv_teacher[0, e.RowIndex].Value.ToString();
+                tb_phoneNumber.Text = dgv_teacher[4, e.RowIndex].Value.ToString();
+                dtp_dateOfBirth.Value = DateTime.ParseExact(dgv_teacher[1, e.RowIndex].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                tb_address.Text = dgv_teacher[5, e.RowIndex].Value.ToString();
+                if (object.Equals(dgv_teacher[2, e.RowIndex].Value.ToString(), "Nam"))
+                {
+                    rdb_gender1.Checked = true;
+
+                }
+                else
+                {
+                    rdb_gender0.Checked = false;
+                }
+                tb_identifycationCard.Text = dgv_teacher[3, e.RowIndex].Value.ToString();
+                cbx_specialize.SelectedIndex = cbx_specialize.FindStringExact(dgv_teacher[6, e.RowIndex].Value.ToString());             
             }
-            // restore data teacher to form
-            tb_teacherName.Text = teacherRow["sHoTen"].ToString();
-            dtp_dateOfBirth.Value = DateTime.ParseExact(teacherRow["sNgaySinh"].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture); // set value for datetimepicker
-            tb_phoneNumber.Text = teacherRow["sSDT"].ToString();
-            tb_address.Text = teacherRow["sQueQuan"].ToString();
-            tb_identifycationCard.Text = teacherRow["sCMND"].ToString();
-            cbx_specialize.SelectedItem = teacherRow["sTenMonHoc"].ToString();
-
-
         }
     }
 }
