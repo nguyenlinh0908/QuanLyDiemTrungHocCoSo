@@ -49,7 +49,23 @@ namespace QuanLyDiemTrungHocCoSo.model
 
         public override void editObject()
         {
-            throw new NotImplementedException();
+            using (SqlConnection cnn = new SqlConnection(connectionString)) // var connectionString get from abstract class MainService
+            {
+                using (SqlCommand cmd = new SqlCommand("", cnn))
+                {
+                    cnn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "procEditClassSchoolYear";
+
+                    cmd.Parameters.AddWithValue("@id", this.id);
+                    cmd.Parameters.AddWithValue("@schoolYearID", this.schoolYearID);
+                    cmd.Parameters.AddWithValue("@classID", this.classID);
+                    cmd.Parameters.AddWithValue("@accountID", this.accountID);
+
+                    cmd.ExecuteNonQuery();
+                    cnn.Close();
+                }
+            }
         }
     }
 }

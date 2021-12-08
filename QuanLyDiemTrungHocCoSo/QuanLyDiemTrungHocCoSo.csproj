@@ -276,6 +276,7 @@
     <Compile Include="model\Score.cs" />
     <Compile Include="model\Student.cs" />
     <Compile Include="model\Subject.cs" />
+    <Compile Include="model\SubjectClass.cs" />
     <Compile Include="model\Teacher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

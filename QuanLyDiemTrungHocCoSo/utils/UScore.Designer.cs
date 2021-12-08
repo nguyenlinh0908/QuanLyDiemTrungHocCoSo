@@ -52,14 +52,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dgv_score = new System.Windows.Forms.DataGridView();
-            this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_dateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_fastTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_fastTest2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_15Test1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_15Test2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_45Test = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_semesterGrades = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelScore = new System.Windows.Forms.Panel();
             this.tb_subject = new System.Windows.Forms.TextBox();
             this.tb_15test2 = new System.Windows.Forms.TextBox();
@@ -68,6 +60,15 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_students = new System.Windows.Forms.ComboBox();
             this.tb_class = new System.Windows.Forms.TextBox();
             this.panelModule = new System.Windows.Forms.Panel();
+            this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_dateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_semester = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_fastTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_fastTest2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_15Test1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_15Test2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_45Test = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_semesterGrades = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_score)).BeginInit();
             this.panelScore.SuspendLayout();
             this.panelInformation.SuspendLayout();
@@ -278,6 +279,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.dgv_score.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_name,
             this.col_dateOfBirth,
+            this.cl_semester,
             this.cl_fastTest,
             this.cl_fastTest2,
             this.cl_15Test1,
@@ -292,70 +294,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.dgv_score.Size = new System.Drawing.Size(1006, 363);
             this.dgv_score.TabIndex = 30;
             this.dgv_score.DoubleClick += new System.EventHandler(this.dgv_score_DoubleClick);
-            // 
-            // cl_name
-            // 
-            this.cl_name.DataPropertyName = "sHoTen";
-            this.cl_name.HeaderText = "Họ và tên";
-            this.cl_name.MinimumWidth = 6;
-            this.cl_name.Name = "cl_name";
-            this.cl_name.Width = 125;
-            // 
-            // col_dateOfBirth
-            // 
-            this.col_dateOfBirth.DataPropertyName = "sNgaySinh";
-            this.col_dateOfBirth.HeaderText = "Ngày sinh";
-            this.col_dateOfBirth.MinimumWidth = 6;
-            this.col_dateOfBirth.Name = "col_dateOfBirth";
-            this.col_dateOfBirth.Width = 125;
-            // 
-            // cl_fastTest
-            // 
-            this.cl_fastTest.DataPropertyName = "fDiemMiengL1";
-            this.cl_fastTest.HeaderText = "Điểm miệng lần 1";
-            this.cl_fastTest.MinimumWidth = 6;
-            this.cl_fastTest.Name = "cl_fastTest";
-            this.cl_fastTest.Width = 125;
-            // 
-            // cl_fastTest2
-            // 
-            this.cl_fastTest2.DataPropertyName = "fDiemMiengL2";
-            this.cl_fastTest2.HeaderText = "Điểm miệng lần 2";
-            this.cl_fastTest2.MinimumWidth = 6;
-            this.cl_fastTest2.Name = "cl_fastTest2";
-            this.cl_fastTest2.Width = 125;
-            // 
-            // cl_15Test1
-            // 
-            this.cl_15Test1.DataPropertyName = "fDiem15L1";
-            this.cl_15Test1.HeaderText = "Điểm 15\' lần 1";
-            this.cl_15Test1.MinimumWidth = 6;
-            this.cl_15Test1.Name = "cl_15Test1";
-            this.cl_15Test1.Width = 125;
-            // 
-            // cl_15Test2
-            // 
-            this.cl_15Test2.DataPropertyName = "fDiem15L2";
-            this.cl_15Test2.HeaderText = "Điểm 15\' lần 2";
-            this.cl_15Test2.MinimumWidth = 6;
-            this.cl_15Test2.Name = "cl_15Test2";
-            this.cl_15Test2.Width = 125;
-            // 
-            // cl_45Test
-            // 
-            this.cl_45Test.DataPropertyName = "fDiem45";
-            this.cl_45Test.HeaderText = "Điểm 45\'";
-            this.cl_45Test.MinimumWidth = 6;
-            this.cl_45Test.Name = "cl_45Test";
-            this.cl_45Test.Width = 125;
-            // 
-            // cl_semesterGrades
-            // 
-            this.cl_semesterGrades.DataPropertyName = "fDiemThi";
-            this.cl_semesterGrades.HeaderText = "Điểm thi";
-            this.cl_semesterGrades.MinimumWidth = 6;
-            this.cl_semesterGrades.Name = "cl_semesterGrades";
-            this.cl_semesterGrades.Width = 125;
             // 
             // panelScore
             // 
@@ -444,6 +382,78 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.panelModule.Size = new System.Drawing.Size(259, 139);
             this.panelModule.TabIndex = 33;
             // 
+            // cl_name
+            // 
+            this.cl_name.DataPropertyName = "sHoTen";
+            this.cl_name.HeaderText = "Họ và tên";
+            this.cl_name.MinimumWidth = 6;
+            this.cl_name.Name = "cl_name";
+            this.cl_name.Width = 125;
+            // 
+            // col_dateOfBirth
+            // 
+            this.col_dateOfBirth.DataPropertyName = "sNgaySinh";
+            this.col_dateOfBirth.HeaderText = "Ngày sinh";
+            this.col_dateOfBirth.MinimumWidth = 6;
+            this.col_dateOfBirth.Name = "col_dateOfBirth";
+            this.col_dateOfBirth.Width = 125;
+            // 
+            // cl_semester
+            // 
+            this.cl_semester.DataPropertyName = "sTenHocKy";
+            this.cl_semester.HeaderText = "Học kỳ";
+            this.cl_semester.MinimumWidth = 6;
+            this.cl_semester.Name = "cl_semester";
+            this.cl_semester.Width = 125;
+            // 
+            // cl_fastTest
+            // 
+            this.cl_fastTest.DataPropertyName = "fDiemMiengL1";
+            this.cl_fastTest.HeaderText = "Điểm miệng lần 1";
+            this.cl_fastTest.MinimumWidth = 6;
+            this.cl_fastTest.Name = "cl_fastTest";
+            this.cl_fastTest.Width = 125;
+            // 
+            // cl_fastTest2
+            // 
+            this.cl_fastTest2.DataPropertyName = "fDiemMiengL2";
+            this.cl_fastTest2.HeaderText = "Điểm miệng lần 2";
+            this.cl_fastTest2.MinimumWidth = 6;
+            this.cl_fastTest2.Name = "cl_fastTest2";
+            this.cl_fastTest2.Width = 125;
+            // 
+            // cl_15Test1
+            // 
+            this.cl_15Test1.DataPropertyName = "fDiem15L1";
+            this.cl_15Test1.HeaderText = "Điểm 15\' lần 1";
+            this.cl_15Test1.MinimumWidth = 6;
+            this.cl_15Test1.Name = "cl_15Test1";
+            this.cl_15Test1.Width = 125;
+            // 
+            // cl_15Test2
+            // 
+            this.cl_15Test2.DataPropertyName = "fDiem15L2";
+            this.cl_15Test2.HeaderText = "Điểm 15\' lần 2";
+            this.cl_15Test2.MinimumWidth = 6;
+            this.cl_15Test2.Name = "cl_15Test2";
+            this.cl_15Test2.Width = 125;
+            // 
+            // cl_45Test
+            // 
+            this.cl_45Test.DataPropertyName = "fDiem45";
+            this.cl_45Test.HeaderText = "Điểm 45\'";
+            this.cl_45Test.MinimumWidth = 6;
+            this.cl_45Test.Name = "cl_45Test";
+            this.cl_45Test.Width = 125;
+            // 
+            // cl_semesterGrades
+            // 
+            this.cl_semesterGrades.DataPropertyName = "fDiemThi";
+            this.cl_semesterGrades.HeaderText = "Điểm thi";
+            this.cl_semesterGrades.MinimumWidth = 6;
+            this.cl_semesterGrades.Name = "cl_semesterGrades";
+            this.cl_semesterGrades.Width = 125;
+            // 
             // UScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -500,16 +510,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.Panel panelModule;
         private System.Windows.Forms.TextBox tb_15test2;
         private System.Windows.Forms.TextBox tb_fastTest2;
+        private System.Windows.Forms.TextBox tb_subject;
+        private System.Windows.Forms.TextBox tb_class;
+        private System.Windows.Forms.ComboBox cbx_students;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_dateOfBirth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_semester;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fastTest;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fastTest2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_15Test1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_15Test2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_45Test;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_semesterGrades;
-        private System.Windows.Forms.TextBox tb_subject;
-        private System.Windows.Forms.TextBox tb_class;
-        private System.Windows.Forms.ComboBox cbx_students;
     }
 }

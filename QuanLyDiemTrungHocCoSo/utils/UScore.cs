@@ -61,7 +61,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "proGetStudentsOfSubjectClass";
-                        cmd.Parameters.AddWithValue("@id", "lm0");
+                        cmd.Parameters.AddWithValue("@id", this.subjectClass);
                         DataTable studentsOfSubjectClass = new DataTable("tblStudentsOfSubjectClass");
                         adp.Fill(studentsOfSubjectClass);
                         cnn.Close();
@@ -93,8 +93,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             string _45Test = dataRowViewScore["fDiem45"].ToString();
             string semesterTest = dataRowViewScore["fDiemThi"].ToString();
             string student = dataRowViewScore["sHoTen"].ToString();
-
-            cbx_semester.SelectedItem = cbx_semester.FindStringExact(semester);
+            cbx_semester.SelectedIndex = cbx_semester.FindStringExact(semester);
             cbx_students.SelectedIndex = cbx_students.FindStringExact(student);       
             tb_fastTest1.Text = _fastTest1;
             tb_fastTest2.Text = _fastTest2;
@@ -154,7 +153,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             _45Score = float.Parse(tb_45test.Text);
             semesterGrades = float.Parse(tb_semesterGrades.Text);
             student_class = cbx_students.SelectedValue.ToString();
-            class_subject = "lm0";
+            class_subject = this.subjectClass;
 
             int idCode = rnd.Next(999);
             id = String.Format("s{0}", idCode.ToString());

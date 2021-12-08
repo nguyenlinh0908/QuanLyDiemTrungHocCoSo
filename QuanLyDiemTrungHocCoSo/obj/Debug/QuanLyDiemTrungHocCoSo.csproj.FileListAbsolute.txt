@@ -1,6 +1,5 @@
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.exe.config
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.exe
-D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\CommonServiceLocator.dll
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
@@ -47,10 +46,10 @@ D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI.FluentTheme.v1.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI.FluentTheme.v2.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\Uno.UI.Toolkit.pdb
-D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.AssemblyReference.cache
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.DSHocSinhtheolop.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.HocSinh.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.Properties.Resources.resources
+D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UForgotPassword.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UHomePage.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UScore.resources
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.USignIn.resources
@@ -60,4 +59,5 @@ D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLy
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.CoreCompileInputs.cache
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.exe
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.pdb
-D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.utils.UForgotPassword.resources
+D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\bin\Debug\QuanLyDiemTrungHocCoSo.pdb
+D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.AssemblyReference.cache

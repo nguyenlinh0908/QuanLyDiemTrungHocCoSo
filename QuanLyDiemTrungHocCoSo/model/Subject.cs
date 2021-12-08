@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyDiemTrungHocCoSo.model
 {
-    class Subject
+    class Subject:sdk.MainService
     {
         private string subjectID, subjectName;
         private string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
@@ -24,6 +24,16 @@ namespace QuanLyDiemTrungHocCoSo.model
         public string SubjectID { get => subjectID; set => subjectID = value; }
         public string SubjectName { get => subjectName; set => subjectName = value; }
         public DataTable SubjectList { get => subjectList; set => subjectList = value; }
+
+        public override void addObject()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void editObject()
+        {
+            throw new NotImplementedException();
+        }
 
         public void loadSubjects()
         {

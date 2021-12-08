@@ -39,8 +39,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     break;
             }
         }
+        // quản lý công tác
+        
 
-    
         private void displayTeacher()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
@@ -67,7 +68,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 dgv_accounts.ReadOnly = true;
                 dgv_accounts.DataSource = teacherHaveView;
 
-            }
+                cbx_subjectTeacher.DataSource = teacherHaveView;
+                cbx_subjectTeacher.DisplayMember = "sHoTen";
+                cbx_subjectTeacher.ValueMember = "PK_sMaTaiKhoan";
+
+            }          
         }
         private void LoadSerial(DataGridView grid)
         {
@@ -100,6 +105,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void displayHeadTeacher()
         {
             model.Teacher teacher = new model.Teacher();
+            model.SubjectClass subjectClass = new model.SubjectClass();
             using (DataTable teacherHaveAccount = teacher.objectList("procAccounts", "tblGiaoVien"))
             {
                 DataView teacherHaveView = new DataView(teacherHaveAccount);
@@ -108,27 +114,50 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 cbx_teacher.ValueMember = "PK_sMaTaiKhoan";
 
             }
-            using (DataTable teacherHaveAccount = teacher.objectList("proGetClass", "tblLopHoc"))
+            using (DataTable dataTableClass = teacher.objectList("proGetClass", "tblLopHoc"))
             {
-                DataView teacherHaveView = new DataView(teacherHaveAccount);
-                cbx_class.DataSource = teacherHaveView;
+                DataView dataViewClass = new DataView(dataTableClass);
+                cbx_class.DataSource = dataViewClass;
                 cbx_class.DisplayMember = "sTenLop";
                 cbx_class.ValueMember = "PK_sMaLop";
 
             }
-            using (DataTable teacherHaveAccount = teacher.objectList("procSchoolYear", "tblNamHoc"))
+            using (DataTable dataTableSchoolYear = teacher.objectList("procSchoolYear", "tblNamHoc"))
             {
-                DataView teacherHaveView = new DataView(teacherHaveAccount);
-                cbx_schoolYear.DataSource = teacherHaveView;
+                DataView dataViewSchoolYear = new DataView(dataTableSchoolYear);
+                cbx_schoolYear.DataSource = dataViewSchoolYear;
                 cbx_schoolYear.DisplayMember = "sNamHoc";
                 cbx_schoolYear.ValueMember = "PK_sMaNamHoc";
             }
-            using (DataTable teacherHaveAccount = teacher.objectList("procClassSchoolYear", "tblLop_NamHoc"))
+            using (DataTable dataTableClassSchooYear = teacher.objectList("procClassSchoolYear", "tblLop_NamHoc"))
             {
-                DataView teacherHaveView = new DataView(teacherHaveAccount);
+                DataView dataViewClassSchoolYear = new DataView(dataTableClassSchooYear);
                 dgv_classSchoolYear.AutoGenerateColumns = false;
                 dgv_classSchoolYear.ReadOnly = true;
-                dgv_classSchoolYear.DataSource = teacherHaveView;
+                dgv_classSchoolYear.DataSource = dataViewClassSchoolYear;
+            }
+            using (DataTable dataTableSubjectClass = subjectClass.objectList("procAllClassSubject", "tblLop_Mon"))
+            {
+                DataView dataViewSubjectClass = new DataView(dataTableSubjectClass);
+                dgv_subjectClass.AutoGenerateColumns = false;
+                dgv_subjectClass.ReadOnly = true;
+                dgv_subjectClass.DataSource = dataViewSubjectClass;
+            }
+            model.Subject subject = new model.Subject();
+            using (DataTable mySubject = subject.objectList("proGetSubjects", "tblMonHoc"))
+            {
+                DataView mySubjectDataView = new DataView(mySubject);
+                cbx_subjectClass.DataSource = mySubjectDataView;
+                cbx_subjectClass.DisplayMember = "sTenMonHoc";
+                cbx_subjectClass.ValueMember = "PK_sMaMonHoc";
+            }
+            model.Class classSchooYear = new model.Class();
+            using (DataTable myClassSchoolYear = classSchooYear.objectList("procAllClassSchoolYear", "tblLop_NamHoc"))
+            {
+                DataView myClassView = new DataView(myClassSchoolYear);
+                cbx_classSchoolYear.DataSource = myClassView;
+                cbx_classSchoolYear.DisplayMember = "sTenLop";
+                cbx_classSchoolYear.ValueMember = "PK_sMaLopNamHoc";
             }
         }
         private void createHeadTeacher()
@@ -142,11 +171,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             headTeacher.addObject();
         }
 
-        private void btn_addHeadAccount_Click(object sender, EventArgs e)
-        {
-            createHeadTeacher();
-            displayHeadTeacher();
-        }
         private void dgv_classSchoolYear_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             LoadSerial(dgv_classSchoolYear);
@@ -173,7 +197,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         {
             HocSinh hocSinh = new HocSinh();
             hocSinh.Show();
-           
         }
 
         private void btn_addTeacher_Click(object sender, EventArgs e)
@@ -189,8 +212,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
         }
 
         private void dgv_accounts_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-         
+        {         
             DataView dataViewTeacher = (DataView)dgv_accounts.DataSource;
             DataRowView dataRowViewTeacher = dataViewTeacher[dgv_accounts.CurrentRow.Index];
             string accountID = dataRowViewTeacher["PK_sMaTaiKhoan"].ToString();
@@ -221,10 +243,89 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void dgv_classITeach_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             LoadSerial(dgv_classITeach);
+        }
+
+        private void btn_addHeadAccount_Click(object sender, EventArgs e)
+        {
+            createHeadTeacher();
+            displayHeadTeacher();
+        }
+
+        private void dgv_classSchoolYear_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataView dataViewClassSchoolYear = (DataView)dgv_classSchoolYear.DataSource;
+            DataRowView dataRowViewSchoolYear = dataViewClassSchoolYear[dgv_classSchoolYear.CurrentRow.Index];
+
+            string teacherName  = dataRowViewSchoolYear["sHoTen"].ToString();
+            string className    = dataRowViewSchoolYear["sTenLop"].ToString();
+            string year         = dataRowViewSchoolYear["sNamHoc"].ToString();
+            cbx_teacher.SelectedIndex = cbx_teacher.FindStringExact(teacherName);
+            cbx_class.SelectedIndex = cbx_class.FindStringExact(className);
+            cbx_schoolYear.SelectedIndex = cbx_schoolYear.FindStringExact(year);
+        }
+
+        private void btn_editHeadTeacher_Click(object sender, EventArgs e)
+        {
+            DataView dataViewClassSchoolYear = (DataView)dgv_classSchoolYear.DataSource;
+            DataRowView dataRowViewSchoolYear = dataViewClassSchoolYear[dgv_classSchoolYear.CurrentRow.Index];
+
+            string id = dataRowViewSchoolYear["PK_sMaLopNamHoc"].ToString();
+            string teacherID = cbx_teacher.SelectedValue.ToString();
+            string classID = cbx_class.SelectedValue.ToString();
+            string schoolYearID = cbx_schoolYear.SelectedValue.ToString();
+
+            model.HeadTeacher headTeacher = new model.HeadTeacher(id, schoolYearID, classID, teacherID);
+            headTeacher.editObject();
+            displayHeadTeacher();
 
         }
 
+        private void btn_addSubjectTeacher_Click(object sender, EventArgs e)
+        {
+            string teacherID, subjectID, classID;
+            teacherID = cbx_subjectTeacher.SelectedValue.ToString();
+            classID = cbx_classSchoolYear.SelectedValue.ToString();
+            subjectID = cbx_subjectClass.SelectedValue.ToString();
 
+            string subjectClassID;
+            Random random = new Random();
+            subjectClassID = "lm"+random.Next(0, 9999).ToString();
+
+            model.SubjectClass subjectClass = new model.SubjectClass(subjectClassID, classID, subjectID, teacherID);
+            subjectClass.addObject();
+            displayHeadTeacher();
+        }
+
+        private void dgv_subjectClass_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataView dataViewSubjectClass = (DataView)dgv_subjectClass.DataSource;
+            DataRowView dataRowViewSubjectClass = dataViewSubjectClass[dgv_subjectClass.CurrentRow.Index];
+
+            string teacherName = dataRowViewSubjectClass["sHoTen"].ToString();
+            string className = dataRowViewSubjectClass["sTenLop"].ToString();
+            string subjectName = dataRowViewSubjectClass["sTenMonHoc"].ToString();
+
+            cbx_subjectTeacher.SelectedIndex = cbx_teacher.FindStringExact(teacherName);
+            cbx_classSchoolYear.SelectedIndex = cbx_classSchoolYear.FindStringExact(className);
+            cbx_subjectClass.SelectedIndex = cbx_subjectClass.FindStringExact(subjectName);
+        }
+
+        private void btn_editSubjectTeacher_Click(object sender, EventArgs e)
+        {
+            string subjectClassID,teacherID, subjectID, classID;
+            DataView dataViewSubjectClass = (DataView)dgv_subjectClass.DataSource;
+            DataRowView dataRowViewSubjectClass = dataViewSubjectClass[dgv_subjectClass.CurrentRow.Index];
+
+            subjectClassID = dataRowViewSubjectClass["PK_sMaLopMon"].ToString();
+            teacherID = cbx_subjectTeacher.SelectedValue.ToString();
+            classID = cbx_classSchoolYear.SelectedValue.ToString();
+            subjectID = cbx_subjectClass.SelectedValue.ToString();
+
+           
+            model.SubjectClass subjectClass =  new model.SubjectClass(subjectClassID, classID, subjectID, teacherID);
+            subjectClass.editObject();
+            displayHeadTeacher();
+        }
 
         // Quản lý giảng dạy
         private void displayClassITeach()
@@ -237,7 +338,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 dgv_classITeach.ReadOnly = true;
                 dgv_classITeach.DataSource = myClassView;
             }
-            
         }
     }
 }
