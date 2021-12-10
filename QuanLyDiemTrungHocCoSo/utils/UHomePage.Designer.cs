@@ -816,6 +816,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Controls.Add(this.tabControlHomePage);
             this.Name = "UHomePage";
             this.Text = "UHomePage";
+            this.Load += new System.EventHandler(this.UHomePage_Load);
             this.tabControlHomePage.ResumeLayout(false);
             this.tab_headTeacher.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

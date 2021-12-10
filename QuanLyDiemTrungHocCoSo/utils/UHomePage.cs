@@ -327,6 +327,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             displayHeadTeacher();
         }
 
+        private void UHomePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
         // Quản lý giảng dạy
         private void displayClassITeach()
         {
