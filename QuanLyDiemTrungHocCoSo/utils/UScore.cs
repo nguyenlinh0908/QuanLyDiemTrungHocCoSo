@@ -31,6 +31,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             displayMainInformation();
             // load score table
             displayScore();
+     
         }
         private void displayMainInformation()
         {
@@ -49,6 +50,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
                         cbx_semester.DisplayMember = "sTenHocKy";
                         cbx_semester.DataSource = scholasticTable;
                         cbx_semester.ValueMember = "PK_sMaHocKy";
+
+
+                        cbx_semesterFilter.DisplayMember = "sTenHocKy";
+                        cbx_semesterFilter.DataSource = scholasticTable;
+                        cbx_semesterFilter.ValueMember = "PK_sMaHocKy";                   
                     }
                 }
             }   
@@ -79,7 +85,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 }
             }
         }
-
+    
         private void dgv_score_DoubleClick(object sender, EventArgs e)
         {
             DataView dataViewScore = (DataView)dgv_score.DataSource;
@@ -136,6 +142,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
             displayScore();
         }
 
+        private void cbx_semesterFilter_DropDownClosed(object sender, EventArgs e)
+        {
+            String semesterID;
+            semesterID = cbx_semesterFilter.SelectedValue.ToString();
+            (dgv_score.DataSource as DataView).RowFilter = string.Format("PK_sMaHocKy LIKE '%{0}%'", semesterID);
+        }
+
+        private void tb_seacherByStudentName_TextChanged(object sender, EventArgs e)
+        {
+            (dgv_score.DataSource as DataView).RowFilter = string.Format("sHoTen LIKE '%{0}%'", tb_seacherByStudentName.Text);
+        }
         private void btn_addScore_Click(object sender, EventArgs e)
         {
             string id, semester, student_class, class_subject;
@@ -169,13 +186,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 DataView scoreView = new DataView(scoreTable);
                 dgv_score.AutoGenerateColumns = false;
                 dgv_score.ReadOnly = true;
-                dgv_score.DataSource = scoreView;
+                dgv_score.DataSource = scoreView;               
             }
-        }
-
-        private void cbx_class_DisplayMemberChanged(object sender, EventArgs e)
-        {
-           
-        }
+        }    
     }
 }

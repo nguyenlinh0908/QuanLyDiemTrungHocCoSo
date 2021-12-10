@@ -49,17 +49,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label11 = new System.Windows.Forms.Label();
             this.btn_editScore = new System.Windows.Forms.Button();
             this.btn_removeScore = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.dgv_score = new System.Windows.Forms.DataGridView();
-            this.panelScore = new System.Windows.Forms.Panel();
-            this.tb_subject = new System.Windows.Forms.TextBox();
-            this.tb_15test2 = new System.Windows.Forms.TextBox();
-            this.tb_fastTest2 = new System.Windows.Forms.TextBox();
-            this.panelInformation = new System.Windows.Forms.Panel();
-            this.cbx_students = new System.Windows.Forms.ComboBox();
-            this.tb_class = new System.Windows.Forms.TextBox();
-            this.panelModule = new System.Windows.Forms.Panel();
             this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_dateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_semester = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +59,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_15Test2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_45Test = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_semesterGrades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelScore = new System.Windows.Forms.Panel();
+            this.tb_subject = new System.Windows.Forms.TextBox();
+            this.tb_15test2 = new System.Windows.Forms.TextBox();
+            this.tb_fastTest2 = new System.Windows.Forms.TextBox();
+            this.panelInformation = new System.Windows.Forms.Panel();
+            this.cbx_students = new System.Windows.Forms.ComboBox();
+            this.tb_class = new System.Windows.Forms.TextBox();
+            this.panelModule = new System.Windows.Forms.Panel();
+            this.tb_seacherByStudentName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbx_semesterFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_score)).BeginInit();
             this.panelScore.SuspendLayout();
             this.panelInformation.SuspendLayout();
@@ -255,24 +256,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.btn_removeScore.UseVisualStyleBackColor = true;
             this.btn_removeScore.Click += new System.EventHandler(this.btn_removeScore_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(17, 92);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Tìm kiếm";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(98, 92);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "In";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // dgv_score
             // 
             this.dgv_score.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -294,93 +277,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.dgv_score.Size = new System.Drawing.Size(1006, 363);
             this.dgv_score.TabIndex = 30;
             this.dgv_score.DoubleClick += new System.EventHandler(this.dgv_score_DoubleClick);
-            // 
-            // panelScore
-            // 
-            this.panelScore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panelScore.Controls.Add(this.tb_subject);
-            this.panelScore.Controls.Add(this.tb_15test2);
-            this.panelScore.Controls.Add(this.tb_fastTest2);
-            this.panelScore.Controls.Add(this.tb_semesterGrades);
-            this.panelScore.Controls.Add(this.tb_45test);
-            this.panelScore.Controls.Add(this.tb_15test1);
-            this.panelScore.Controls.Add(this.tb_fastTest1);
-            this.panelScore.Controls.Add(this.label10);
-            this.panelScore.Controls.Add(this.label9);
-            this.panelScore.Controls.Add(this.label8);
-            this.panelScore.Controls.Add(this.label7);
-            this.panelScore.Controls.Add(this.label6);
-            this.panelScore.Controls.Add(this.lb_subjects);
-            this.panelScore.Location = new System.Drawing.Point(366, 86);
-            this.panelScore.Name = "panelScore";
-            this.panelScore.Size = new System.Drawing.Size(348, 266);
-            this.panelScore.TabIndex = 31;
-            // 
-            // tb_subject
-            // 
-            this.tb_subject.Enabled = false;
-            this.tb_subject.Location = new System.Drawing.Point(150, 46);
-            this.tb_subject.Name = "tb_subject";
-            this.tb_subject.Size = new System.Drawing.Size(144, 22);
-            this.tb_subject.TabIndex = 13;
-            // 
-            // tb_15test2
-            // 
-            this.tb_15test2.Location = new System.Drawing.Point(228, 109);
-            this.tb_15test2.Name = "tb_15test2";
-            this.tb_15test2.Size = new System.Drawing.Size(66, 22);
-            this.tb_15test2.TabIndex = 25;
-            // 
-            // tb_fastTest2
-            // 
-            this.tb_fastTest2.Location = new System.Drawing.Point(228, 74);
-            this.tb_fastTest2.Name = "tb_fastTest2";
-            this.tb_fastTest2.Size = new System.Drawing.Size(66, 22);
-            this.tb_fastTest2.TabIndex = 24;
-            // 
-            // panelInformation
-            // 
-            this.panelInformation.Controls.Add(this.cbx_students);
-            this.panelInformation.Controls.Add(this.tb_class);
-            this.panelInformation.Controls.Add(this.lb_students);
-            this.panelInformation.Controls.Add(this.cbx_semester);
-            this.panelInformation.Controls.Add(this.lb_semester);
-            this.panelInformation.Controls.Add(this.lb_class);
-            this.panelInformation.Controls.Add(this.lb_infoStudent);
-            this.panelInformation.Location = new System.Drawing.Point(12, 86);
-            this.panelInformation.Name = "panelInformation";
-            this.panelInformation.Size = new System.Drawing.Size(348, 266);
-            this.panelInformation.TabIndex = 32;
-            // 
-            // cbx_students
-            // 
-            this.cbx_students.FormattingEnabled = true;
-            this.cbx_students.Location = new System.Drawing.Point(102, 114);
-            this.cbx_students.Name = "cbx_students";
-            this.cbx_students.Size = new System.Drawing.Size(162, 24);
-            this.cbx_students.TabIndex = 13;
-            // 
-            // tb_class
-            // 
-            this.tb_class.Enabled = false;
-            this.tb_class.Location = new System.Drawing.Point(102, 81);
-            this.tb_class.Name = "tb_class";
-            this.tb_class.Size = new System.Drawing.Size(162, 22);
-            this.tb_class.TabIndex = 12;
-            // 
-            // panelModule
-            // 
-            this.panelModule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelModule.Controls.Add(this.button5);
-            this.panelModule.Controls.Add(this.button4);
-            this.panelModule.Controls.Add(this.btn_removeScore);
-            this.panelModule.Controls.Add(this.btn_editScore);
-            this.panelModule.Controls.Add(this.label11);
-            this.panelModule.Controls.Add(this.btn_addScore);
-            this.panelModule.Location = new System.Drawing.Point(720, 86);
-            this.panelModule.Name = "panelModule";
-            this.panelModule.Size = new System.Drawing.Size(259, 139);
-            this.panelModule.TabIndex = 33;
             // 
             // cl_name
             // 
@@ -454,11 +350,125 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_semesterGrades.Name = "cl_semesterGrades";
             this.cl_semesterGrades.Width = 125;
             // 
+            // panelScore
+            // 
+            this.panelScore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panelScore.Controls.Add(this.tb_subject);
+            this.panelScore.Controls.Add(this.tb_15test2);
+            this.panelScore.Controls.Add(this.tb_fastTest2);
+            this.panelScore.Controls.Add(this.tb_semesterGrades);
+            this.panelScore.Controls.Add(this.tb_45test);
+            this.panelScore.Controls.Add(this.tb_15test1);
+            this.panelScore.Controls.Add(this.tb_fastTest1);
+            this.panelScore.Controls.Add(this.label10);
+            this.panelScore.Controls.Add(this.label9);
+            this.panelScore.Controls.Add(this.label8);
+            this.panelScore.Controls.Add(this.label7);
+            this.panelScore.Controls.Add(this.label6);
+            this.panelScore.Controls.Add(this.lb_subjects);
+            this.panelScore.Location = new System.Drawing.Point(366, 86);
+            this.panelScore.Name = "panelScore";
+            this.panelScore.Size = new System.Drawing.Size(348, 213);
+            this.panelScore.TabIndex = 31;
+            // 
+            // tb_subject
+            // 
+            this.tb_subject.Enabled = false;
+            this.tb_subject.Location = new System.Drawing.Point(150, 46);
+            this.tb_subject.Name = "tb_subject";
+            this.tb_subject.Size = new System.Drawing.Size(144, 22);
+            this.tb_subject.TabIndex = 13;
+            // 
+            // tb_15test2
+            // 
+            this.tb_15test2.Location = new System.Drawing.Point(228, 109);
+            this.tb_15test2.Name = "tb_15test2";
+            this.tb_15test2.Size = new System.Drawing.Size(66, 22);
+            this.tb_15test2.TabIndex = 25;
+            // 
+            // tb_fastTest2
+            // 
+            this.tb_fastTest2.Location = new System.Drawing.Point(228, 74);
+            this.tb_fastTest2.Name = "tb_fastTest2";
+            this.tb_fastTest2.Size = new System.Drawing.Size(66, 22);
+            this.tb_fastTest2.TabIndex = 24;
+            // 
+            // panelInformation
+            // 
+            this.panelInformation.Controls.Add(this.cbx_students);
+            this.panelInformation.Controls.Add(this.tb_class);
+            this.panelInformation.Controls.Add(this.lb_students);
+            this.panelInformation.Controls.Add(this.cbx_semester);
+            this.panelInformation.Controls.Add(this.lb_semester);
+            this.panelInformation.Controls.Add(this.lb_class);
+            this.panelInformation.Controls.Add(this.lb_infoStudent);
+            this.panelInformation.Location = new System.Drawing.Point(12, 86);
+            this.panelInformation.Name = "panelInformation";
+            this.panelInformation.Size = new System.Drawing.Size(348, 213);
+            this.panelInformation.TabIndex = 32;
+            // 
+            // cbx_students
+            // 
+            this.cbx_students.FormattingEnabled = true;
+            this.cbx_students.Location = new System.Drawing.Point(102, 114);
+            this.cbx_students.Name = "cbx_students";
+            this.cbx_students.Size = new System.Drawing.Size(162, 24);
+            this.cbx_students.TabIndex = 13;
+            // 
+            // tb_class
+            // 
+            this.tb_class.Enabled = false;
+            this.tb_class.Location = new System.Drawing.Point(102, 81);
+            this.tb_class.Name = "tb_class";
+            this.tb_class.Size = new System.Drawing.Size(162, 22);
+            this.tb_class.TabIndex = 12;
+            // 
+            // panelModule
+            // 
+            this.panelModule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelModule.Controls.Add(this.btn_removeScore);
+            this.panelModule.Controls.Add(this.btn_editScore);
+            this.panelModule.Controls.Add(this.label11);
+            this.panelModule.Controls.Add(this.btn_addScore);
+            this.panelModule.Location = new System.Drawing.Point(720, 86);
+            this.panelModule.Name = "panelModule";
+            this.panelModule.Size = new System.Drawing.Size(259, 103);
+            this.panelModule.TabIndex = 33;
+            // 
+            // tb_seacherByStudentName
+            // 
+            this.tb_seacherByStudentName.Location = new System.Drawing.Point(12, 330);
+            this.tb_seacherByStudentName.Name = "tb_seacherByStudentName";
+            this.tb_seacherByStudentName.Size = new System.Drawing.Size(169, 22);
+            this.tb_seacherByStudentName.TabIndex = 34;
+            this.tb_seacherByStudentName.TextChanged += new System.EventHandler(this.tb_seacherByStudentName_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 310);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 17);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Tìm kiếm: tên học sinh";
+            // 
+            // cbx_semesterFilter
+            // 
+            this.cbx_semesterFilter.FormattingEnabled = true;
+            this.cbx_semesterFilter.Location = new System.Drawing.Point(209, 326);
+            this.cbx_semesterFilter.Name = "cbx_semesterFilter";
+            this.cbx_semesterFilter.Size = new System.Drawing.Size(121, 24);
+            this.cbx_semesterFilter.TabIndex = 36;
+            this.cbx_semesterFilter.DropDownClosed += new System.EventHandler(this.cbx_semesterFilter_DropDownClosed);
+            // 
             // UScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.cbx_semesterFilter);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_seacherByStudentName);
             this.Controls.Add(this.panelModule);
             this.Controls.Add(this.panelInformation);
             this.Controls.Add(this.panelScore);
@@ -502,8 +512,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_editScore;
         private System.Windows.Forms.Button btn_removeScore;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dgv_score;
         private System.Windows.Forms.Panel panelScore;
         private System.Windows.Forms.Panel panelInformation;
@@ -522,5 +530,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_15Test2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_45Test;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_semesterGrades;
+        private System.Windows.Forms.TextBox tb_seacherByStudentName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbx_semesterFilter;
     }
 }
