@@ -70,6 +70,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_seacherByStudentName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbx_semesterFilter = new System.Windows.Forms.ComboBox();
+            this.btn_report = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_score)).BeginInit();
             this.panelScore.SuspendLayout();
             this.panelInformation.SuspendLayout();
@@ -426,13 +427,14 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // panelModule
             // 
             this.panelModule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelModule.Controls.Add(this.btn_report);
             this.panelModule.Controls.Add(this.btn_removeScore);
             this.panelModule.Controls.Add(this.btn_editScore);
             this.panelModule.Controls.Add(this.label11);
             this.panelModule.Controls.Add(this.btn_addScore);
             this.panelModule.Location = new System.Drawing.Point(720, 86);
             this.panelModule.Name = "panelModule";
-            this.panelModule.Size = new System.Drawing.Size(259, 103);
+            this.panelModule.Size = new System.Drawing.Size(259, 131);
             this.panelModule.TabIndex = 33;
             // 
             // tb_seacherByStudentName
@@ -460,6 +462,16 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_semesterFilter.Size = new System.Drawing.Size(121, 24);
             this.cbx_semesterFilter.TabIndex = 36;
             this.cbx_semesterFilter.DropDownClosed += new System.EventHandler(this.cbx_semesterFilter_DropDownClosed);
+            // 
+            // btn_report
+            // 
+            this.btn_report.Location = new System.Drawing.Point(17, 92);
+            this.btn_report.Name = "btn_report";
+            this.btn_report.Size = new System.Drawing.Size(237, 32);
+            this.btn_report.TabIndex = 37;
+            this.btn_report.Text = "Báo cáo";
+            this.btn_report.UseVisualStyleBackColor = true;
+            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
             // 
             // UScore
             // 
@@ -533,5 +545,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.TextBox tb_seacherByStudentName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbx_semesterFilter;
+        private System.Windows.Forms.Button btn_report;
     }
 }

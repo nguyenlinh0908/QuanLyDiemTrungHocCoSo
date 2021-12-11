@@ -231,12 +231,23 @@ namespace QuanLyDiemTrungHocCoSo.utils
             model.Student myClass = new model.Student();
             using(DataTable myStudents = myClass.studentListMyClass(this.accountID))
             {
-                lb_numberOfStudents.Text = myStudents.Rows.Count.ToString();
-                lb_className.Text = myStudents.Rows[0]["sTenLop"].ToString();
-                DataView myStudentsView = new DataView(myStudents);
-                dgv_MyStudents.AutoGenerateColumns = false;
-                dgv_MyStudents.ReadOnly = true;
-                dgv_MyStudents.DataSource = myStudentsView;
+                if(myStudents.Rows.Count > 0)
+                {
+                    lb_numberOfStudents.Text = myStudents.Rows.Count.ToString();
+                    lb_className.Text = myStudents.Rows[0]["sTenLop"].ToString();
+                    DataView myStudentsView = new DataView(myStudents);
+                    dgv_MyStudents.AutoGenerateColumns = false;
+                    dgv_MyStudents.ReadOnly = true;
+                    dgv_MyStudents.DataSource = myStudentsView;
+                    lb_warningClassSubject.Hide();
+                    btn_UiScore.Enabled = true;
+                }
+                else
+                {
+                    btn_UiScore.Enabled = false;
+                    lb_warningClassSubject.Show();
+                }
+               
             }
         }
 
@@ -325,6 +336,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             model.SubjectClass subjectClass =  new model.SubjectClass(subjectClassID, classID, subjectID, teacherID);
             subjectClass.editObject();
             displayHeadTeacher();
+        }
+
+        private void UHomePage_Load(object sender, EventArgs e)
+        {
+
         }
 
         // Quản lý giảng dạy

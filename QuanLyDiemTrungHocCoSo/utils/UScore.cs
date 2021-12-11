@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows.UI.Notifications;
 
 namespace QuanLyDiemTrungHocCoSo.utils
 {
@@ -32,6 +33,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // load score table
             displayScore();
      
+        }
+        public void Alert(string msg, Form_Alert.enmType type)
+        {
+            Form_Alert frm = new Form_Alert();
+            frm.showAlert(msg, type);
         }
         private void displayMainInformation()
         {
@@ -149,6 +155,14 @@ namespace QuanLyDiemTrungHocCoSo.utils
             (dgv_score.DataSource as DataView).RowFilter = string.Format("PK_sMaHocKy LIKE '%{0}%'", semesterID);
         }
 
+        private void btn_report_Click(object sender, EventArgs e)
+        {
+            DataView myTableView = (DataView)dgv_score.DataSource;
+            DataTable myTable = myTableView.ToTable();
+            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable);
+            uScoreSubjectReport.Show();
+        }
+
         private void tb_seacherByStudentName_TextChanged(object sender, EventArgs e)
         {
             (dgv_score.DataSource as DataView).RowFilter = string.Format("sHoTen LIKE '%{0}%'", tb_seacherByStudentName.Text);
@@ -175,7 +189,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
             int idCode = rnd.Next(999);
             id = String.Format("s{0}", idCode.ToString());
             model.Score score = new model.Score(id, semester, student_class, class_subject, fastScore1, fastScore2, _15Score1, _15Score2, _45Score, semesterGrades);
-            score.addObject();    
+            score.addObject();
+            this.Alert("Success Alert", Form_Alert.enmType.Success);
             displayScore();
         }
         private void displayScore()

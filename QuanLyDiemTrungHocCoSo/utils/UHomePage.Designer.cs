@@ -99,6 +99,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label3 = new System.Windows.Forms.Label();
             this.lb_className = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lb_warningClassSubject = new System.Windows.Forms.Label();
             this.tabControlHomePage.SuspendLayout();
             this.tab_headTeacher.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -617,6 +618,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.lb_warningClassSubject);
             this.panel4.Controls.Add(this.dgv_classITeach);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.btn_UiScore);
@@ -774,9 +776,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.lb_numberOfStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_numberOfStudents.Location = new System.Drawing.Point(71, 61);
             this.lb_numberOfStudents.Name = "lb_numberOfStudents";
-            this.lb_numberOfStudents.Size = new System.Drawing.Size(27, 20);
+            this.lb_numberOfStudents.Size = new System.Drawing.Size(18, 20);
             this.lb_numberOfStudents.TabIndex = 3;
-            this.lb_numberOfStudents.Text = "36";
+            this.lb_numberOfStudents.Text = "0";
             // 
             // label3
             // 
@@ -794,9 +796,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.lb_className.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_className.Location = new System.Drawing.Point(63, 30);
             this.lb_className.Name = "lb_className";
-            this.lb_className.Size = new System.Drawing.Size(74, 20);
+            this.lb_className.Size = new System.Drawing.Size(253, 20);
             this.lb_className.TabIndex = 1;
-            this.lb_className.Text = "1910A03";
+            this.lb_className.Text = "Chưa được phân công chủ nhiệm";
             // 
             // label1
             // 
@@ -808,6 +810,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label1.TabIndex = 0;
             this.label1.Text = "Lớp:";
             // 
+            // lb_warningClassSubject
+            // 
+            this.lb_warningClassSubject.AutoSize = true;
+            this.lb_warningClassSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_warningClassSubject.ForeColor = System.Drawing.Color.Red;
+            this.lb_warningClassSubject.Location = new System.Drawing.Point(4, 88);
+            this.lb_warningClassSubject.Name = "lb_warningClassSubject";
+            this.lb_warningClassSubject.Size = new System.Drawing.Size(247, 20);
+            this.lb_warningClassSubject.TabIndex = 10;
+            this.lb_warningClassSubject.Text = "Chưa được phân công giảng dạy";
+            // 
             // UHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -816,6 +829,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Controls.Add(this.tabControlHomePage);
             this.Name = "UHomePage";
             this.Text = "UHomePage";
+            this.Load += new System.EventHandler(this.UHomePage_Load);
             this.tabControlHomePage.ResumeLayout(false);
             this.tab_headTeacher.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -911,5 +925,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_subject;
+        private System.Windows.Forms.Label lb_warningClassSubject;
     }
 }

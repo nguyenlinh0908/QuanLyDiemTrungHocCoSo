@@ -18,7 +18,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Text = "Đăng nhập hệ thống";
         }
 
-        
+        public void Alert(string msg, Form_Alert.enmType type)
+        {
+            Form_Alert frm = new Form_Alert();
+            frm.showAlert(msg, type);
+        }
         private void btn_signIn_Click(object sender, EventArgs e)
         {
             string username = tb_username.Text.Trim();
@@ -30,23 +34,28 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 {
                     if (myAccounts.Rows.Count > 0)
                     {
+                        this.Alert("Login Success", Form_Alert.enmType.Success);
                         string permission = myAccounts.Rows[0]["FK_sMaQuyen"].ToString();
                         string accountID = myAccounts.Rows[0]["PK_sMaTaiKhoan"].ToString();
                         utils.UHomePage homePage;
                         switch (permission)
                         {
                             case "q0": // admin permission
-                                homePage = new utils.UHomePage(permission, accountID); 
-                                homePage.Show();
+                                homePage = new utils.UHomePage(permission, accountID);
+                                this.Hide();
+                                homePage.Show();                             
                                 break;
                             case "q1": //user permission
                                 homePage = new utils.UHomePage(permission, accountID);
-                                homePage.Show();
+                                this.Hide();
+                                homePage.Show();                             
                                 break;
                             default:
+
                                 break;
                         }
                     }
+                    this.Alert("Login Fail", Form_Alert.enmType.Warning);
                 }
             }
 
