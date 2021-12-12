@@ -42,11 +42,8 @@ namespace QuanLyDiemTrungHocCoSo
             this.contextMenuStripDSHS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hiểnThịDanhSáchHọcSinhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.contextMenuStripDSHS.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxTenlop
@@ -154,41 +151,22 @@ namespace QuanLyDiemTrungHocCoSo
             this.label4.TabIndex = 11;
             this.label4.Text = "Tổng số học sinh:";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnXoa);
-            this.groupBox1.Controls.Add(this.btnThem);
-            this.groupBox1.Location = new System.Drawing.Point(40, 292);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(694, 146);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Các chức năng";
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(3, 75);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(237, 32);
-            this.btnXoa.TabIndex = 1;
-            this.btnXoa.Text = "Xóa học sinh";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(3, 18);
+            this.btnThem.Location = new System.Drawing.Point(255, 346);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(237, 28);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm học sinh";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // DSHocSinhtheolop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listViewHocSinh);
             this.Controls.Add(this.label3);
@@ -201,7 +179,6 @@ namespace QuanLyDiemTrungHocCoSo
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.DSHocSinhtheolop_Load);
             this.contextMenuStripDSHS.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,8 +198,6 @@ namespace QuanLyDiemTrungHocCoSo
         private System.Windows.Forms.ContextMenuStrip contextMenuStripDSHS;
         private System.Windows.Forms.ToolStripMenuItem hiểnThịDanhSáchHọcSinhToolStripMenuItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
     }
 }

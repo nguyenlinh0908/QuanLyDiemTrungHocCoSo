@@ -57,7 +57,9 @@ namespace QuanLyDiemTrungHocCoSo
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXemchitiet = new System.Windows.Forms.Button();
+            this.btnThemHSDS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrHocSinh)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,7 +177,7 @@ namespace QuanLyDiemTrungHocCoSo
             this.Column1,
             this.col4,
             this.col5});
-            this.dgrHocSinh.Location = new System.Drawing.Point(111, 331);
+            this.dgrHocSinh.Location = new System.Drawing.Point(80, 52);
             this.dgrHocSinh.Name = "dgrHocSinh";
             this.dgrHocSinh.RowHeadersWidth = 51;
             this.dgrHocSinh.RowTemplate.Height = 24;
@@ -235,6 +237,7 @@ namespace QuanLyDiemTrungHocCoSo
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dgrHocSinh);
             this.groupBox2.Location = new System.Drawing.Point(40, 288);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1010, 330);
@@ -320,22 +323,33 @@ namespace QuanLyDiemTrungHocCoSo
             // 
             // btnXemchitiet
             // 
-            this.btnXemchitiet.Location = new System.Drawing.Point(418, 259);
+            this.btnXemchitiet.Location = new System.Drawing.Point(238, 259);
             this.btnXemchitiet.Name = "btnXemchitiet";
-            this.btnXemchitiet.Size = new System.Drawing.Size(189, 35);
+            this.btnXemchitiet.Size = new System.Drawing.Size(251, 35);
             this.btnXemchitiet.TabIndex = 20;
             this.btnXemchitiet.Text = "Xem danh sách học sinh từng lớp";
             this.btnXemchitiet.UseVisualStyleBackColor = true;
             this.btnXemchitiet.Click += new System.EventHandler(this.btnXemchitiet_Click);
+            // 
+            // btnThemHSDS
+            // 
+            this.btnThemHSDS.CausesValidation = false;
+            this.btnThemHSDS.Location = new System.Drawing.Point(557, 259);
+            this.btnThemHSDS.Name = "btnThemHSDS";
+            this.btnThemHSDS.Size = new System.Drawing.Size(248, 35);
+            this.btnThemHSDS.TabIndex = 21;
+            this.btnThemHSDS.Text = "Thêm học sinh vào danh sách từng lớp";
+            this.btnThemHSDS.UseVisualStyleBackColor = true;
+            this.btnThemHSDS.Click += new System.EventHandler(this.btnThemHSDS_Click);
             // 
             // HocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 621);
+            this.Controls.Add(this.btnThemHSDS);
             this.Controls.Add(this.btnXemchitiet);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.dgrHocSinh);
             this.Controls.Add(this.rbtNu);
             this.Controls.Add(this.rbtNam);
             this.Controls.Add(this.txtTenhocsinh);
@@ -354,6 +368,7 @@ namespace QuanLyDiemTrungHocCoSo
             this.Text = "HocSinh";
             this.Load += new System.EventHandler(this.HocSinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgrHocSinh)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -390,5 +405,6 @@ namespace QuanLyDiemTrungHocCoSo
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Button btnXemchitiet;
+        private System.Windows.Forms.Button btnThemHSDS;
     }
 }

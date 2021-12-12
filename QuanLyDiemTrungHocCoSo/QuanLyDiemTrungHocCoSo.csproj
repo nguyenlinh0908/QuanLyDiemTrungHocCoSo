@@ -294,6 +294,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="sdk\MainService.cs" />
+    <Compile Include="ThemHSDS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemHSDS.Designer.cs">
+      <DependentUpon>ThemHSDS.cs</DependentUpon>
+    </Compile>
     <Compile Include="utils\Form_Alert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +373,9 @@
     <EmbeddedResource Include="report\ScoreSubjectTable.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ScoreSubjectTable.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemHSDS.resx">
+      <DependentUpon>ThemHSDS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="utils\Form_Alert.resx">
       <DependentUpon>Form_Alert.cs</DependentUpon>

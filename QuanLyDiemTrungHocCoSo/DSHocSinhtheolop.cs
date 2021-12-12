@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace QuanLyDiemTrungHocCoSo
 {
@@ -16,7 +17,7 @@ namespace QuanLyDiemTrungHocCoSo
         SqlConnection Ketnoi;
         SqlCommand Thuchien;
         SqlDataReader Docdl;
-        string chuoiketnoi = @"Data Source=DESKTOP-VR3BE53\SQLEXPRESS;Initial Catalog=QuanLyDiem;Integrated Security=True";
+        string chuoiketnoi = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
         string lenh;
         
         public DSHocSinhtheolop()
@@ -140,6 +141,12 @@ namespace QuanLyDiemTrungHocCoSo
         private void DSHocSinhtheolop_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            ThemHSDS ds = new ThemHSDS();
+            ds.Show();
         }
     }
 }

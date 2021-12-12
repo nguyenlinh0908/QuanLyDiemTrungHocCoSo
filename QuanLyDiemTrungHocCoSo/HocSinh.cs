@@ -213,5 +213,11 @@ namespace QuanLyDiemTrungHocCoSo
             DSHocSinhtheolop ds = new DSHocSinhtheolop();
             ds.Show();
         }
+
+        private void btnThemHSDS_Click(object sender, EventArgs e)
+        {
+            ThemHSDS dshs = new ThemHSDS();
+            dshs.Show();
+        }
     }
 }
