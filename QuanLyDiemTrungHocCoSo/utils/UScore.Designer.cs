@@ -67,6 +67,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_students = new System.Windows.Forms.ComboBox();
             this.tb_class = new System.Windows.Forms.TextBox();
             this.panelModule = new System.Windows.Forms.Panel();
+            this.btn_report = new System.Windows.Forms.Button();
             this.tb_seacherByStudentName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbx_semesterFilter = new System.Windows.Forms.ComboBox();
@@ -194,6 +195,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_fastTest1.Name = "tb_fastTest1";
             this.tb_fastTest1.Size = new System.Drawing.Size(66, 22);
             this.tb_fastTest1.TabIndex = 20;
+            this.tb_fastTest1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_fastTest1_KeyPress);
             // 
             // tb_15test1
             // 
@@ -201,6 +203,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_15test1.Name = "tb_15test1";
             this.tb_15test1.Size = new System.Drawing.Size(66, 22);
             this.tb_15test1.TabIndex = 21;
+            this.tb_15test1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_15test1_KeyPress);
             // 
             // tb_45test
             // 
@@ -208,13 +211,15 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_45test.Name = "tb_45test";
             this.tb_45test.Size = new System.Drawing.Size(144, 22);
             this.tb_45test.TabIndex = 22;
+            this.tb_45test.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_45test_KeyPress);
             // 
             // tb_semesterGrades
             // 
-            this.tb_semesterGrades.Location = new System.Drawing.Point(150, 165);
+            this.tb_semesterGrades.Location = new System.Drawing.Point(150, 162);
             this.tb_semesterGrades.Name = "tb_semesterGrades";
             this.tb_semesterGrades.Size = new System.Drawing.Size(144, 22);
             this.tb_semesterGrades.TabIndex = 23;
+            this.tb_semesterGrades.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_semesterGrades_KeyPress);
             // 
             // btn_addScore
             // 
@@ -385,6 +390,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_15test2.Name = "tb_15test2";
             this.tb_15test2.Size = new System.Drawing.Size(66, 22);
             this.tb_15test2.TabIndex = 25;
+            this.tb_15test2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_15test2_KeyPress);
             // 
             // tb_fastTest2
             // 
@@ -392,6 +398,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_fastTest2.Name = "tb_fastTest2";
             this.tb_fastTest2.Size = new System.Drawing.Size(66, 22);
             this.tb_fastTest2.TabIndex = 24;
+            this.tb_fastTest2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_fastTest2_KeyPress);
             // 
             // panelInformation
             // 
@@ -426,14 +433,25 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // panelModule
             // 
             this.panelModule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelModule.Controls.Add(this.btn_report);
             this.panelModule.Controls.Add(this.btn_removeScore);
             this.panelModule.Controls.Add(this.btn_editScore);
             this.panelModule.Controls.Add(this.label11);
             this.panelModule.Controls.Add(this.btn_addScore);
             this.panelModule.Location = new System.Drawing.Point(720, 86);
             this.panelModule.Name = "panelModule";
-            this.panelModule.Size = new System.Drawing.Size(259, 103);
+            this.panelModule.Size = new System.Drawing.Size(259, 131);
             this.panelModule.TabIndex = 33;
+            // 
+            // btn_report
+            // 
+            this.btn_report.Location = new System.Drawing.Point(17, 92);
+            this.btn_report.Name = "btn_report";
+            this.btn_report.Size = new System.Drawing.Size(237, 32);
+            this.btn_report.TabIndex = 37;
+            this.btn_report.Text = "Báo cáo";
+            this.btn_report.UseVisualStyleBackColor = true;
+            this.btn_report.Click += new System.EventHandler(this.btn_report_Click);
             // 
             // tb_seacherByStudentName
             // 
@@ -533,5 +551,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.TextBox tb_seacherByStudentName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbx_semesterFilter;
+        private System.Windows.Forms.Button btn_report;
     }
 }
