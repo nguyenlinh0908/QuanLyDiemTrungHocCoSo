@@ -324,6 +324,12 @@
     <Compile Include="utils\UScoreSubjectReport.Designer.cs">
       <DependentUpon>UScoreSubjectReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="utils\UScoreTableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utils\UScoreTableView.Designer.cs">
+      <DependentUpon>UScoreTableView.cs</DependentUpon>
+    </Compile>
     <Compile Include="utils\USignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="utils\UScoreSubjectReport.resx">
       <DependentUpon>UScoreSubjectReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utils\UScoreTableView.resx">
+      <DependentUpon>UScoreTableView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="utils\USignIn.resx">
       <DependentUpon>USignIn.cs</DependentUpon>

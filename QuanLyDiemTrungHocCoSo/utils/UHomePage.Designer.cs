@@ -81,6 +81,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label5 = new System.Windows.Forms.Label();
             this.tab_myClass = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lb_warningClassSubject = new System.Windows.Forms.Label();
             this.dgv_classITeach = new System.Windows.Forms.DataGridView();
             this.cl_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_mainTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +89,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label13 = new System.Windows.Forms.Label();
             this.btn_UiScore = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_viewScore = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_MyStudents = new System.Windows.Forms.DataGridView();
             this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,7 +101,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label3 = new System.Windows.Forms.Label();
             this.lb_className = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lb_warningClassSubject = new System.Windows.Forms.Label();
             this.tabControlHomePage.SuspendLayout();
             this.tab_headTeacher.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -627,6 +628,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.panel4.Size = new System.Drawing.Size(1410, 260);
             this.panel4.TabIndex = 9;
             // 
+            // lb_warningClassSubject
+            // 
+            this.lb_warningClassSubject.AutoSize = true;
+            this.lb_warningClassSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_warningClassSubject.ForeColor = System.Drawing.Color.Red;
+            this.lb_warningClassSubject.Location = new System.Drawing.Point(4, 88);
+            this.lb_warningClassSubject.Name = "lb_warningClassSubject";
+            this.lb_warningClassSubject.Size = new System.Drawing.Size(247, 20);
+            this.lb_warningClassSubject.TabIndex = 10;
+            this.lb_warningClassSubject.Text = "Chưa được phân công giảng dạy";
+            // 
             // dgv_classITeach
             // 
             this.dgv_classITeach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -689,6 +701,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_viewScore);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dgv_MyStudents);
             this.panel1.Controls.Add(this.label14);
@@ -700,6 +713,16 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1410, 440);
             this.panel1.TabIndex = 7;
+            // 
+            // btn_viewScore
+            // 
+            this.btn_viewScore.Location = new System.Drawing.Point(1043, 61);
+            this.btn_viewScore.Name = "btn_viewScore";
+            this.btn_viewScore.Size = new System.Drawing.Size(350, 46);
+            this.btn_viewScore.TabIndex = 6;
+            this.btn_viewScore.Text = "Xem bảng điểm";
+            this.btn_viewScore.UseVisualStyleBackColor = true;
+            this.btn_viewScore.Click += new System.EventHandler(this.btn_viewScore_Click);
             // 
             // label2
             // 
@@ -810,17 +833,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label1.TabIndex = 0;
             this.label1.Text = "Lớp:";
             // 
-            // lb_warningClassSubject
-            // 
-            this.lb_warningClassSubject.AutoSize = true;
-            this.lb_warningClassSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_warningClassSubject.ForeColor = System.Drawing.Color.Red;
-            this.lb_warningClassSubject.Location = new System.Drawing.Point(4, 88);
-            this.lb_warningClassSubject.Name = "lb_warningClassSubject";
-            this.lb_warningClassSubject.Size = new System.Drawing.Size(247, 20);
-            this.lb_warningClassSubject.TabIndex = 10;
-            this.lb_warningClassSubject.Text = "Chưa được phân công giảng dạy";
-            // 
             // UHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -926,5 +938,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_subject;
         private System.Windows.Forms.Label lb_warningClassSubject;
+        private System.Windows.Forms.Button btn_viewScore;
     }
 }

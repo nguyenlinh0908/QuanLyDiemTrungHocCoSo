@@ -62,6 +62,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(308, 29);
             this.tb_username.TabIndex = 2;
+            this.tb_username.Validating += new System.ComponentModel.CancelEventHandler(this.tb_username_Validating);
             // 
             // tb_password
             // 
@@ -70,6 +71,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_password.Size = new System.Drawing.Size(308, 29);
             this.tb_password.TabIndex = 3;
             this.tb_password.UseSystemPasswordChar = true;
+            this.tb_password.Validating += new System.ComponentModel.CancelEventHandler(this.tb_password_Validating);
             // 
             // label3
             // 
@@ -109,6 +111,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Name = "USignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "USignIn";
+            this.Load += new System.EventHandler(this.USignIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

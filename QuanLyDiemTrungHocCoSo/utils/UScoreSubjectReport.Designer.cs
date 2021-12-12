@@ -42,6 +42,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.crvScoreSubject.Name = "crvScoreSubject";
             this.crvScoreSubject.Size = new System.Drawing.Size(800, 450);
             this.crvScoreSubject.TabIndex = 0;
+            this.crvScoreSubject.Load += new System.EventHandler(this.crvScoreSubject_Load);
             // 
             // UScoreSubjectReport
             // 

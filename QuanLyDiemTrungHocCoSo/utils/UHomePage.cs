@@ -39,8 +39,13 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     break;
             }
         }
+        public void Alert(string msg, Form_Alert.enmType type)
+        {
+            Form_Alert frm = new Form_Alert();
+            frm.showAlert(msg, type);
+        }
         // quản lý công tác
-        
+
 
         private void displayTeacher()
         {
@@ -208,6 +213,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void btn_signUp_Click(object sender, EventArgs e)
         {
             signUpAccount();
+            this.Alert("Success", Form_Alert.enmType.Success);
             displayTeacher();
         }
 
@@ -239,15 +245,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     dgv_MyStudents.AutoGenerateColumns = false;
                     dgv_MyStudents.ReadOnly = true;
                     dgv_MyStudents.DataSource = myStudentsView;
-                    lb_warningClassSubject.Hide();
-                    btn_UiScore.Enabled = true;
+                    
                 }
-                else
-                {
-                    btn_UiScore.Enabled = false;
-                    lb_warningClassSubject.Show();
-                }
-               
             }
         }
 
@@ -259,6 +258,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void btn_addHeadAccount_Click(object sender, EventArgs e)
         {
             createHeadTeacher();
+            this.Alert("Success", Form_Alert.enmType.Success);
             displayHeadTeacher();
         }
 
@@ -287,6 +287,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
 
             model.HeadTeacher headTeacher = new model.HeadTeacher(id, schoolYearID, classID, teacherID);
             headTeacher.editObject();
+            this.Alert("Success", Form_Alert.enmType.Success);
             displayHeadTeacher();
 
         }
@@ -304,6 +305,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
 
             model.SubjectClass subjectClass = new model.SubjectClass(subjectClassID, classID, subjectID, teacherID);
             subjectClass.addObject();
+            this.Alert("Success", Form_Alert.enmType.Success);
             displayHeadTeacher();
         }
 
@@ -335,6 +337,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
            
             model.SubjectClass subjectClass =  new model.SubjectClass(subjectClassID, classID, subjectID, teacherID);
             subjectClass.editObject();
+            this.Alert("Success", Form_Alert.enmType.Success);
             displayHeadTeacher();
         }
 
@@ -343,16 +346,37 @@ namespace QuanLyDiemTrungHocCoSo.utils
 
         }
 
+        private void btn_viewScore_Click(object sender, EventArgs e)
+        {
+            DataView dataViewStudents = (DataView)dgv_MyStudents.DataSource;
+            DataRowView dataRowViewStudents = dataViewStudents[0];
+            string classYearID = dataRowViewStudents["PK_sMaLopNamHoc"].ToString();
+
+            utils.UScoreTableView uScoreTableView = new utils.UScoreTableView(classYearID);
+            uScoreTableView.Show();
+        }
+
         // Quản lý giảng dạy
         private void displayClassITeach()
         {
             model.Class classITeach = new model.Class();
             using (DataTable myClass = classITeach.objectListWithID("procClassSubjectWithAccount", "tblClassSubjectWithID", this.accountID))
             {              
-                DataView myClassView = new DataView(myClass);
-                dgv_classITeach.AutoGenerateColumns = false;
-                dgv_classITeach.ReadOnly = true;
-                dgv_classITeach.DataSource = myClassView;
+                if(myClass.Rows.Count > 0) 
+                {
+                    DataView myClassView = new DataView(myClass);
+                    dgv_classITeach.AutoGenerateColumns = false;
+                    dgv_classITeach.ReadOnly = true;
+                    dgv_classITeach.DataSource = myClassView;
+
+                    lb_warningClassSubject.Hide();
+                    btn_UiScore.Enabled = true;
+                }
+                else
+                {
+                    btn_UiScore.Enabled = false;
+                    lb_warningClassSubject.Show();
+                }
             }
         }
     }

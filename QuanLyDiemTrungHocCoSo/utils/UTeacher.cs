@@ -64,6 +64,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             model.Teacher teacher = new model.Teacher(id, name, dateOfBirth, gender, address, phoneNumber, identitfycationCard, specialize);
             teacher.addObject();
             displayTeachList();
+            model.Teacher myTeach = new model.Teacher();
+            using (DataTable teacherNoAccountTable = myTeach.objectList("procTeacherNoAccount", "tblGiaoVien"))
+            {
+
+            }
         }
 
         private string checkEmptyString(string str, string tag)

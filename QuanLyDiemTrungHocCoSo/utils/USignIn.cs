@@ -55,10 +55,40 @@ namespace QuanLyDiemTrungHocCoSo.utils
                                 break;
                         }
                     }
-                    this.Alert("Login Fail", Form_Alert.enmType.Warning);
+                }
+                else
+                {
+                   this.Alert("Login Fail", Form_Alert.enmType.Warning);
                 }
             }
 
+        }
+
+        private void USignIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_username_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tb_username.Text))
+            {
+                e.Cancel = true;
+                tb_username.Focus();
+                ErrorProvider error = new ErrorProvider();         
+                error.SetError(tb_username, "Please enter your user name!");
+            }
+        }
+
+        private void tb_password_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tb_password.Text))
+            {
+                e.Cancel = true;
+                tb_password.Focus();
+                ErrorProvider error = new ErrorProvider();
+                error.SetError(tb_password, "Please enter your password!");
+            }
         }
     }
 }
