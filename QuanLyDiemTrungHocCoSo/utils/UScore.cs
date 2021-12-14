@@ -63,7 +63,23 @@ namespace QuanLyDiemTrungHocCoSo.utils
                         cbx_semesterFilter.ValueMember = "PK_sMaHocKy";                   
                     }
                 }
-            }   
+            }
+            using (SqlConnection connectionScholastic = new SqlConnection(connectionString))
+            {
+                using (SqlCommand commandScholastic = new SqlCommand("", connectionScholastic))
+                {
+                    using (SqlDataAdapter adapterScholastic = new SqlDataAdapter(commandScholastic))
+                    {
+                        commandScholastic.CommandType = CommandType.StoredProcedure;
+                        commandScholastic.CommandText = "proGetSemesterNoExcept";
+                        DataTable scholasticTable = new DataTable("tblHocKy");
+                        adapterScholastic.Fill(scholasticTable);
+                        cbx_semesterFilter.DisplayMember = "sTenHocKy";
+                        cbx_semesterFilter.DataSource = scholasticTable;
+                        cbx_semesterFilter.ValueMember = "PK_sMaHocKy";
+                    }
+                }
+            }
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
@@ -147,14 +163,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             score.queryObjectWithId("procDeleteScore", scoreID);
             displayScore();
         }
-
-        private void cbx_semesterFilter_DropDownClosed(object sender, EventArgs e)
-        {
-            String semesterID;
-            semesterID = cbx_semesterFilter.SelectedValue.ToString();
-            (dgv_score.DataSource as DataView).RowFilter = string.Format("PK_sMaHocKy LIKE '%{0}%'", semesterID);
-        }
-
+  
         private void btn_report_Click(object sender, EventArgs e)
         {
             DataView myTableView = (DataView)dgv_score.DataSource;
@@ -250,6 +259,20 @@ namespace QuanLyDiemTrungHocCoSo.utils
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btn_semesterFilter_Click(object sender, EventArgs e)
+        {
+            String semesterID;
+            semesterID = cbx_semesterFilter.SelectedValue.ToString();
+            if(string.Equals(semesterID, "hk3") == false)
+            {
+                (dgv_score.DataSource as DataView).RowFilter = string.Format("PK_sMaHocKy LIKE '%{0}%'", semesterID);
+            }
+            else
+            {
+                displayScore();
             }
         }
 

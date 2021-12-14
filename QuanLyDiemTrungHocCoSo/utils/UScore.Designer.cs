@@ -59,6 +59,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_15Test2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_45Test = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_semesterGrades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gpa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelScore = new System.Windows.Forms.Panel();
             this.tb_subject = new System.Windows.Forms.TextBox();
             this.tb_15test2 = new System.Windows.Forms.TextBox();
@@ -71,6 +72,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.tb_seacherByStudentName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbx_semesterFilter = new System.Windows.Forms.ComboBox();
+            this.btn_semesterFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_score)).BeginInit();
             this.panelScore.SuspendLayout();
             this.panelInformation.SuspendLayout();
@@ -192,6 +194,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // tb_fastTest1
             // 
             this.tb_fastTest1.Location = new System.Drawing.Point(150, 76);
+            this.tb_fastTest1.MaxLength = 10;
             this.tb_fastTest1.Name = "tb_fastTest1";
             this.tb_fastTest1.Size = new System.Drawing.Size(66, 22);
             this.tb_fastTest1.TabIndex = 20;
@@ -200,6 +203,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // tb_15test1
             // 
             this.tb_15test1.Location = new System.Drawing.Point(150, 109);
+            this.tb_15test1.MaxLength = 10;
             this.tb_15test1.Name = "tb_15test1";
             this.tb_15test1.Size = new System.Drawing.Size(66, 22);
             this.tb_15test1.TabIndex = 21;
@@ -208,6 +212,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // tb_45test
             // 
             this.tb_45test.Location = new System.Drawing.Point(150, 137);
+            this.tb_45test.MaxLength = 10;
             this.tb_45test.Name = "tb_45test";
             this.tb_45test.Size = new System.Drawing.Size(144, 22);
             this.tb_45test.TabIndex = 22;
@@ -216,6 +221,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // tb_semesterGrades
             // 
             this.tb_semesterGrades.Location = new System.Drawing.Point(150, 162);
+            this.tb_semesterGrades.MaxLength = 10;
             this.tb_semesterGrades.Name = "tb_semesterGrades";
             this.tb_semesterGrades.Size = new System.Drawing.Size(144, 22);
             this.tb_semesterGrades.TabIndex = 23;
@@ -273,7 +279,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_15Test1,
             this.cl_15Test2,
             this.cl_45Test,
-            this.cl_semesterGrades});
+            this.cl_semesterGrades,
+            this.cl_gpa});
             this.dgv_score.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_score.Location = new System.Drawing.Point(0, 358);
             this.dgv_score.Name = "dgv_score";
@@ -355,6 +362,14 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_semesterGrades.Name = "cl_semesterGrades";
             this.cl_semesterGrades.Width = 125;
             // 
+            // cl_gpa
+            // 
+            this.cl_gpa.DataPropertyName = "fTrungBinhMon";
+            this.cl_gpa.HeaderText = "Trung bình môn";
+            this.cl_gpa.MinimumWidth = 6;
+            this.cl_gpa.Name = "cl_gpa";
+            this.cl_gpa.Width = 125;
+            // 
             // panelScore
             // 
             this.panelScore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -387,6 +402,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // tb_15test2
             // 
             this.tb_15test2.Location = new System.Drawing.Point(228, 109);
+            this.tb_15test2.MaxLength = 10;
             this.tb_15test2.Name = "tb_15test2";
             this.tb_15test2.Size = new System.Drawing.Size(66, 22);
             this.tb_15test2.TabIndex = 25;
@@ -395,6 +411,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // tb_fastTest2
             // 
             this.tb_fastTest2.Location = new System.Drawing.Point(228, 74);
+            this.tb_fastTest2.MaxLength = 10;
             this.tb_fastTest2.Name = "tb_fastTest2";
             this.tb_fastTest2.Size = new System.Drawing.Size(66, 22);
             this.tb_fastTest2.TabIndex = 24;
@@ -473,17 +490,27 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // cbx_semesterFilter
             // 
             this.cbx_semesterFilter.FormattingEnabled = true;
-            this.cbx_semesterFilter.Location = new System.Drawing.Point(209, 326);
+            this.cbx_semesterFilter.Location = new System.Drawing.Point(772, 328);
             this.cbx_semesterFilter.Name = "cbx_semesterFilter";
             this.cbx_semesterFilter.Size = new System.Drawing.Size(121, 24);
             this.cbx_semesterFilter.TabIndex = 36;
-            this.cbx_semesterFilter.DropDownClosed += new System.EventHandler(this.cbx_semesterFilter_DropDownClosed);
+            // 
+            // btn_semesterFilter
+            // 
+            this.btn_semesterFilter.Location = new System.Drawing.Point(899, 328);
+            this.btn_semesterFilter.Name = "btn_semesterFilter";
+            this.btn_semesterFilter.Size = new System.Drawing.Size(95, 25);
+            this.btn_semesterFilter.TabIndex = 37;
+            this.btn_semesterFilter.Text = "Tìm kiếm";
+            this.btn_semesterFilter.UseVisualStyleBackColor = true;
+            this.btn_semesterFilter.Click += new System.EventHandler(this.btn_semesterFilter_Click);
             // 
             // UScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.btn_semesterFilter);
             this.Controls.Add(this.cbx_semesterFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_seacherByStudentName);
@@ -539,6 +566,10 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.TextBox tb_subject;
         private System.Windows.Forms.TextBox tb_class;
         private System.Windows.Forms.ComboBox cbx_students;
+        private System.Windows.Forms.TextBox tb_seacherByStudentName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbx_semesterFilter;
+        private System.Windows.Forms.Button btn_report;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_dateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_semester;
@@ -548,9 +579,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_15Test2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_45Test;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_semesterGrades;
-        private System.Windows.Forms.TextBox tb_seacherByStudentName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbx_semesterFilter;
-        private System.Windows.Forms.Button btn_report;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gpa;
+        private System.Windows.Forms.Button btn_semesterFilter;
     }
 }

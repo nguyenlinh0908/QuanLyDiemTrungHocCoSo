@@ -38,6 +38,13 @@ namespace QuanLyDiemTrungHocCoSo.model
         public float Test45 { get => test45; set => test45 = value; }
         public float LastTest { get => lastTest; set => lastTest = value; }
 
+        private float calculateGpa()
+        {
+            float gpa = 0;
+            gpa = (this.fastScore1 + this.fastScore2 + this.test15_1 + this.test15_2 + this.test45 * 2 + this.lastTest * 3) / 9;
+            return gpa;
+
+        }
         public override void addObject()
         {
             using (SqlConnection cnn = new SqlConnection(connectionString)) // var connectionString get from abstract class MainService
@@ -57,6 +64,7 @@ namespace QuanLyDiemTrungHocCoSo.model
                     cmd.Parameters.AddWithValue("@_15Test2", this.test15_2);
                     cmd.Parameters.AddWithValue("@_45Test", this.test45);
                     cmd.Parameters.AddWithValue("@semesterGrades", this.lastTest);
+                    cmd.Parameters.AddWithValue("@gpa", Math.Round(calculateGpa(),2));
                     cmd.ExecuteNonQuery();
                     cnn.Close();
                 }
@@ -82,6 +90,7 @@ namespace QuanLyDiemTrungHocCoSo.model
                     cmd.Parameters.AddWithValue("@semesterTest", this.lastTest);
                     cmd.Parameters.AddWithValue("@studentClassID", this.student_class_ID);
                     cmd.Parameters.AddWithValue("@semesterID", this.semesterID);
+                    cmd.Parameters.AddWithValue("@gpa",calculateGpa());
                     cmd.ExecuteNonQuery();
                     cnn.Close();
                 }
