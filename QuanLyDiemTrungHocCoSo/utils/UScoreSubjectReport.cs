@@ -36,10 +36,10 @@ namespace QuanLyDiemTrungHocCoSo.utils
             rpt.Load(reportFile);
 
             CrystalDecisions.Shared.TableLogOnInfo tableLogOnInfo = new CrystalDecisions.Shared.TableLogOnInfo();
-            tableLogOnInfo.ConnectionInfo.ServerName = ".\\SQLEXPRESS";
+            tableLogOnInfo.ConnectionInfo.ServerName = "DESKTOP-VR3BE53\\SQLEXPRESS";
             tableLogOnInfo.ConnectionInfo.DatabaseName = "QuanLyDiem";
             tableLogOnInfo.ConnectionInfo.UserID = "sa";
-            tableLogOnInfo.ConnectionInfo.Password = "1234";
+            tableLogOnInfo.ConnectionInfo.Password = "123";
 
 
             foreach (CrystalDecisions.CrystalReports.Engine.Table table in rpt.Database.Tables)
