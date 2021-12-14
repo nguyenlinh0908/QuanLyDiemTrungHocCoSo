@@ -84,3 +84,4 @@ F:\quanlydiem\QuanLyDiemTrungHocCoSo\Uno.UI.FluentTheme.pdb
 F:\quanlydiem\QuanLyDiemTrungHocCoSo\Uno.UI.FluentTheme.v1.pdb
 F:\quanlydiem\QuanLyDiemTrungHocCoSo\Uno.UI.FluentTheme.v2.pdb
 F:\quanlydiem\QuanLyDiemTrungHocCoSo\Uno.UI.Toolkit.pdb
+F:\quanlydiem\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.AssemblyReference.cache
