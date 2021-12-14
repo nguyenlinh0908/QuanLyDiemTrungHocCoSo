@@ -101,7 +101,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label3 = new System.Windows.Forms.Label();
             this.lb_className = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_trungBinhMon = new System.Windows.Forms.Button();
             this.tabControlHomePage.SuspendLayout();
             this.tab_headTeacher.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -702,7 +701,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_trungBinhMon);
             this.panel1.Controls.Add(this.btn_viewScore);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dgv_MyStudents);
@@ -718,11 +716,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // btn_viewScore
             // 
-            this.btn_viewScore.Location = new System.Drawing.Point(1165, 61);
+            this.btn_viewScore.Location = new System.Drawing.Point(1242, 61);
             this.btn_viewScore.Name = "btn_viewScore";
-            this.btn_viewScore.Size = new System.Drawing.Size(228, 46);
+            this.btn_viewScore.Size = new System.Drawing.Size(151, 46);
             this.btn_viewScore.TabIndex = 6;
-            this.btn_viewScore.Text = "Xem bảng điểm từng môn";
+            this.btn_viewScore.Text = "Xem bảng điểm";
             this.btn_viewScore.UseVisualStyleBackColor = true;
             this.btn_viewScore.Click += new System.EventHandler(this.btn_viewScore_Click);
             // 
@@ -835,15 +833,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.label1.TabIndex = 0;
             this.label1.Text = "Lớp:";
             // 
-            // btn_trungBinhMon
-            // 
-            this.btn_trungBinhMon.Location = new System.Drawing.Point(1013, 61);
-            this.btn_trungBinhMon.Name = "btn_trungBinhMon";
-            this.btn_trungBinhMon.Size = new System.Drawing.Size(146, 46);
-            this.btn_trungBinhMon.TabIndex = 7;
-            this.btn_trungBinhMon.Text = "Trung bình môn";
-            this.btn_trungBinhMon.UseVisualStyleBackColor = true;
-            // 
             // UHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -950,6 +939,5 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_subject;
         private System.Windows.Forms.Label lb_warningClassSubject;
         private System.Windows.Forms.Button btn_viewScore;
-        private System.Windows.Forms.Button btn_trungBinhMon;
     }
 }

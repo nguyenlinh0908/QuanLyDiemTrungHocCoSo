@@ -18,6 +18,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void UScoreTableView_Load(object sender, EventArgs e)
         {
             displayView();
+            btn_ViewScoreReport.Enabled = false;
         }
 
         private void displayView()
@@ -84,8 +85,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
             DataView myTableView = (DataView)dgv_scoreEachSubject.DataSource;
             DataRowView dataRowViewStudents = myTableView[0];
             string subjectName = dataRowViewStudents["sTenMonHoc"].ToString();
+            string semester = cbx_sesmeter.GetItemText(cbx_sesmeter.SelectedItem);
             DataTable myTable = myTableView.ToTable();
-            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, "");// subjectName để thêm tên bảng điểm
+            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, subjectName +" "+semester );// subjectName để thêm tên bảng điểm
             uScoreSubjectReport.Show();
         }
         private void btn_displayScore_Click(object sender, EventArgs e)
@@ -125,6 +127,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
                             dgv_scoreEachSubject.ReadOnly = true;
                             dgv_scoreEachSubject.DataSource = scoreView;
                             lb_warningViewScore.Hide();
+                            btn_ViewScoreReport.Enabled = true;
                         }
                         else
                         {
@@ -132,6 +135,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
                             lb_warningViewScore.ForeColor = Color.FromArgb(235, 52, 52);
                             lb_warningViewScore.Show();
                             dgv_scoreEachSubject.DataSource = null;
+                            btn_ViewScoreReport.Enabled = true;
                         }
 
                     }

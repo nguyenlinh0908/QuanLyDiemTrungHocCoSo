@@ -354,6 +354,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             utils.UScoreTableView uScoreTableView = new utils.UScoreTableView(classYearID);
             uScoreTableView.Show();
         }
+
         // Quản lý giảng dạy
         private void displayClassITeach()
         {
