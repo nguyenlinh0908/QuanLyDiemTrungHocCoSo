@@ -14,7 +14,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.classYearID = classYearID;
             InitializeComponent();
         }
-        
+
         private void UScoreTableView_Load(object sender, EventArgs e)
         {
             displayView();
@@ -62,7 +62,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "proGetSemesterNoExcept";                   
+                        cmd.CommandText = "proGetSemesterNoExcept";
                         DataTable subjects = new DataTable("tblHocKy");
                         adp.Fill(subjects);
                         cnn.Close();
@@ -87,7 +87,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             string subjectName = dataRowViewStudents["sTenMonHoc"].ToString();
             string semester = cbx_sesmeter.GetItemText(cbx_sesmeter.SelectedItem);
             DataTable myTable = myTableView.ToTable();
-            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, subjectName +" "+semester );// subjectName để thêm tên bảng điểm
+            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, subjectName + " " + semester);// subjectName để thêm tên bảng điểm
             uScoreSubjectReport.Show();
         }
         private void btn_displayScore_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             String semesterID, subjectID;
             subjectID = cbx_subject.SelectedValue.ToString();
             semesterID = cbx_sesmeter.SelectedValue.ToString();
-            
+
             using (SqlConnection cnn = new SqlConnection(score.connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
@@ -114,9 +114,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
                         }
                         else
                         {
-                            cmd.CommandText = "procScore";                      
-                            cmd.Parameters.AddWithValue("@id", subjectID);                       
-                        }                     
+                            cmd.CommandText = "procScore";
+                            cmd.Parameters.AddWithValue("@id", subjectID);
+                        }
                         DataTable scoreEachSubject = new DataTable("tblDiem");
                         adp.Fill(scoreEachSubject);
                         cnn.Close();

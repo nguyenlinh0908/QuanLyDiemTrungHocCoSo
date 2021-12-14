@@ -219,6 +219,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Column4.Width = 125;
             // 
             // cl_trungBinhMon
+            // btn_ViewScoreReport
+            // 
+            this.btn_ViewScoreReport.Location = new System.Drawing.Point(633, 52);
+            this.btn_ViewScoreReport.Name = "btn_ViewScoreReport";
+            this.btn_ViewScoreReport.Size = new System.Drawing.Size(155, 32);
+            this.btn_ViewScoreReport.TabIndex = 5;
+            this.btn_ViewScoreReport.Text = "Xuất báo cáo";
+            this.btn_ViewScoreReport.UseVisualStyleBackColor = true;
+            this.btn_ViewScoreReport.Click += new System.EventHandler(this.btn_ViewScoreReport_Click);
+            // 
+            // btn_clearFilter
             // 
             this.cl_trungBinhMon.DataPropertyName = "fTrungBinhMon";
             this.cl_trungBinhMon.HeaderText = "Trung bình môn";
