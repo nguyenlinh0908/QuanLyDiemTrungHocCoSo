@@ -34,6 +34,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_subject = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_scoreEachSubject = new System.Windows.Forms.DataGridView();
+            this.btn_ViewScoreReport = new System.Windows.Forms.Button();
+            this.btn_displayScore = new System.Windows.Forms.Button();
+            this.lb_warningViewScore = new System.Windows.Forms.Label();
             this.cl_HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_sNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +47,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_ViewScoreReport = new System.Windows.Forms.Button();
-            this.btn_clearFilter = new System.Windows.Forms.Button();
+            this.cl_trungBinhMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_scoreEachSubject)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +58,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_sesmeter.Name = "cbx_sesmeter";
             this.cbx_sesmeter.Size = new System.Drawing.Size(121, 24);
             this.cbx_sesmeter.TabIndex = 0;
-//            this.cbx_sesmeter.SelectedIndexChanged += new System.EventHandler(this.cbx_sesmeter_SelectedIndexChanged);
-            this.cbx_sesmeter.DropDownClosed += new System.EventHandler(this.cbx_sesmeter_DropDownClosed);
             // 
             // label1
             // 
@@ -75,7 +75,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cbx_subject.Name = "cbx_subject";
             this.cbx_subject.Size = new System.Drawing.Size(121, 24);
             this.cbx_subject.TabIndex = 2;
-            this.cbx_subject.DropDownClosed += new System.EventHandler(this.cbx_subject_DropDownClosed);
             // 
             // label2
             // 
@@ -99,14 +98,45 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.cl_trungBinhMon});
             this.dgv_scoreEachSubject.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_scoreEachSubject.Location = new System.Drawing.Point(0, 90);
+            this.dgv_scoreEachSubject.Location = new System.Drawing.Point(0, 116);
             this.dgv_scoreEachSubject.Name = "dgv_scoreEachSubject";
             this.dgv_scoreEachSubject.RowHeadersWidth = 51;
             this.dgv_scoreEachSubject.RowTemplate.Height = 24;
-            this.dgv_scoreEachSubject.Size = new System.Drawing.Size(800, 360);
+            this.dgv_scoreEachSubject.Size = new System.Drawing.Size(800, 334);
             this.dgv_scoreEachSubject.TabIndex = 4;
+            // 
+            // btn_ViewScoreReport
+            // 
+            this.btn_ViewScoreReport.Location = new System.Drawing.Point(633, 52);
+            this.btn_ViewScoreReport.Name = "btn_ViewScoreReport";
+            this.btn_ViewScoreReport.Size = new System.Drawing.Size(155, 32);
+            this.btn_ViewScoreReport.TabIndex = 5;
+            this.btn_ViewScoreReport.Text = "Xuất báo cáo";
+            this.btn_ViewScoreReport.UseVisualStyleBackColor = true;
+            this.btn_ViewScoreReport.Click += new System.EventHandler(this.btn_ViewScoreReport_Click);
+            // 
+            // btn_displayScore
+            // 
+            this.btn_displayScore.Location = new System.Drawing.Point(267, 61);
+            this.btn_displayScore.Name = "btn_displayScore";
+            this.btn_displayScore.Size = new System.Drawing.Size(75, 23);
+            this.btn_displayScore.TabIndex = 6;
+            this.btn_displayScore.Text = "Hiển thị";
+            this.btn_displayScore.UseVisualStyleBackColor = true;
+            this.btn_displayScore.Click += new System.EventHandler(this.btn_displayScore_Click);
+            // 
+            // lb_warningViewScore
+            // 
+            this.lb_warningViewScore.AutoSize = true;
+            this.lb_warningViewScore.ForeColor = System.Drawing.Color.Red;
+            this.lb_warningViewScore.Location = new System.Drawing.Point(15, 91);
+            this.lb_warningViewScore.Name = "lb_warningViewScore";
+            this.lb_warningViewScore.Size = new System.Drawing.Size(217, 17);
+            this.lb_warningViewScore.TabIndex = 7;
+            this.lb_warningViewScore.Text = "Môn học này chưa cập nhật điểm";
             // 
             // cl_HoTen
             // 
@@ -188,6 +218,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
             // 
+            // cl_trungBinhMon
             // btn_ViewScoreReport
             // 
             this.btn_ViewScoreReport.Location = new System.Drawing.Point(633, 52);
@@ -200,20 +231,19 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // btn_clearFilter
             // 
-            this.btn_clearFilter.Location = new System.Drawing.Point(267, 61);
-            this.btn_clearFilter.Name = "btn_clearFilter";
-            this.btn_clearFilter.Size = new System.Drawing.Size(75, 23);
-            this.btn_clearFilter.TabIndex = 6;
-            this.btn_clearFilter.Text = "Bỏ lọc";
-            this.btn_clearFilter.UseVisualStyleBackColor = true;
-            this.btn_clearFilter.Click += new System.EventHandler(this.btn_clearFilter_Click);
+            this.cl_trungBinhMon.DataPropertyName = "fTrungBinhMon";
+            this.cl_trungBinhMon.HeaderText = "Trung bình môn";
+            this.cl_trungBinhMon.MinimumWidth = 6;
+            this.cl_trungBinhMon.Name = "cl_trungBinhMon";
+            this.cl_trungBinhMon.Width = 125;
             // 
             // UScoreTableView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_clearFilter);
+            this.Controls.Add(this.lb_warningViewScore);
+            this.Controls.Add(this.btn_displayScore);
             this.Controls.Add(this.btn_ViewScoreReport);
             this.Controls.Add(this.dgv_scoreEachSubject);
             this.Controls.Add(this.label2);
@@ -237,6 +267,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgv_scoreEachSubject;
         private System.Windows.Forms.Button btn_ViewScoreReport;
+        private System.Windows.Forms.Button btn_displayScore;
+        private System.Windows.Forms.Label lb_warningViewScore;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_sNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_gioiTinh;
@@ -247,6 +279,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button btn_clearFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_trungBinhMon;
     }
 }

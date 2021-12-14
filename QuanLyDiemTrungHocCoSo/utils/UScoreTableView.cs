@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyDiemTrungHocCoSo.utils
@@ -19,17 +14,20 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.classYearID = classYearID;
             InitializeComponent();
         }
-        
+
         private void UScoreTableView_Load(object sender, EventArgs e)
         {
             displayView();
+            btn_ViewScoreReport.Enabled = false;
         }
 
         private void displayView()
         {
             model.SubjectClass classSubject = new model.SubjectClass();
-            
-            
+            lb_warningViewScore.Text = "Nhấn hiển thị để xem danh sách điểm từng môn";
+            lb_warningViewScore.ForeColor = Color.FromArgb(0, 0, 0);//(R, G, B) (0, 0, 0 = black)
+            lb_warningViewScore.Show();
+
             using (SqlConnection cnn = new SqlConnection(classSubject.connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
@@ -64,7 +62,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "proGetSemester";                   
+                        cmd.CommandText = "proGetSemesterNoExcept";
                         DataTable subjects = new DataTable("tblHocKy");
                         adp.Fill(subjects);
                         cnn.Close();
@@ -81,8 +79,30 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     }
                 }
             }
+        }
+        private void btn_ViewScoreReport_Click(object sender, EventArgs e)
+        {
+            DataView myTableView = (DataView)dgv_scoreEachSubject.DataSource;
+            DataRowView dataRowViewStudents = myTableView[0];
+           
+                 
+            string semester = cbx_sesmeter.GetItemText(cbx_sesmeter.SelectedItem);
+            string subjectName = cbx_subject.GetItemText(cbx_subject.SelectedItem);
+          //  string semesterID = cbx_sesmeter.SelectedValue.ToString();
+          //  string subjectName = "";
+            //subjectName = dataRowViewStudents["sTenMonHoc"].ToString();
+            DataTable myTable = myTableView.ToTable();
+            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, subjectName + " " + semester + " các kỳ");// subjectName để thêm tên bảng điểm
+            uScoreSubjectReport.Show();
+        }
+        private void btn_displayScore_Click(object sender, EventArgs e)
+        {
+            model.Score score = new model.Score();
+            String semesterID, subjectID;
+            subjectID = cbx_subject.SelectedValue.ToString();
+            semesterID = cbx_sesmeter.SelectedValue.ToString();
 
-            using (SqlConnection cnn = new SqlConnection(classSubject.connectionString))
+            using (SqlConnection cnn = new SqlConnection(score.connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
                 {
@@ -90,8 +110,18 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "procAllScoreByClassYear";
-                        cmd.Parameters.AddWithValue("@id", this.classYearID);
+                        if (string.Equals(semesterID, "hk3") == false)
+                        {
+                            cmd.CommandText = "procAllScoreByClassYear";
+                            cmd.Parameters.AddWithValue("@id", this.classYearID);
+                            cmd.Parameters.AddWithValue("@subjectClass", subjectID);
+                            cmd.Parameters.AddWithValue("@semester", semesterID);
+                        }
+                        else
+                        {
+                            cmd.CommandText = "procScore";
+                            cmd.Parameters.AddWithValue("@id", subjectID);
+                        }
                         DataTable scoreEachSubject = new DataTable("tblDiem");
                         adp.Fill(scoreEachSubject);
                         cnn.Close();
@@ -101,57 +131,21 @@ namespace QuanLyDiemTrungHocCoSo.utils
                             dgv_scoreEachSubject.AutoGenerateColumns = false;
                             dgv_scoreEachSubject.ReadOnly = true;
                             dgv_scoreEachSubject.DataSource = scoreView;
+                            lb_warningViewScore.Hide();
+                            btn_ViewScoreReport.Enabled = true;
                         }
-                       
+                        else
+                        {
+                            lb_warningViewScore.Text = "Môn học này chưa được cập nhật điểm";
+                            lb_warningViewScore.ForeColor = Color.FromArgb(235, 52, 52);
+                            lb_warningViewScore.Show();
+                            dgv_scoreEachSubject.DataSource = null;
+                            btn_ViewScoreReport.Enabled = false;
+                        }
+
                     }
                 }
             }
         }
-
-        private void cbx_sesmeter_DropDownClosed(object sender, EventArgs e)
-        {
-           
-            String semesterID, subjectID;
-            subjectID = cbx_subject.SelectedValue.ToString();
-            semesterID = cbx_sesmeter.SelectedValue.ToString();
-            if (!string.IsNullOrEmpty(subjectID) || !string.IsNullOrEmpty(semesterID))
-            {
-                if (dgv_scoreEachSubject.Rows.Count > 1)
-                {
-                    (dgv_scoreEachSubject.DataSource as DataView).RowFilter = string.Format("FK_sMaLopMon LIKE '%{0}%' AND FK_sMaHocKy LIKE '%{1}%'", subjectID, semesterID);
-                }
-            }
-        }
-
-        private void cbx_subject_DropDownClosed(object sender, EventArgs e)
-        {
-            String subjectID, semesterID;
-            subjectID = cbx_subject.SelectedValue.ToString();
-            semesterID = cbx_sesmeter.SelectedValue.ToString();
-            if(!string.IsNullOrEmpty(subjectID) || !string.IsNullOrEmpty(semesterID))
-            {
-                if(dgv_scoreEachSubject.Rows.Count > 1)
-                {                 
-                    (dgv_scoreEachSubject.DataSource as DataView).RowFilter = string.Format("FK_sMaLopMon LIKE '%{0}%' AND FK_sMaHocKy LIKE '%{1}%'", subjectID, semesterID);
-                }               
-            }
-        }
-
-        private void btn_ViewScoreReport_Click(object sender, EventArgs e)
-        {
-            DataView myTableView = (DataView)dgv_scoreEachSubject.DataSource;
-            DataRowView dataRowViewStudents = myTableView[0];
-            string subjectName = dataRowViewStudents["sTenMonHoc"].ToString();
-            DataTable myTable = myTableView.ToTable();
-            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, "");// subjectName để thêm tên bảng điểm
-            uScoreSubjectReport.Show();
-        }
-
-        private void btn_clearFilter_Click(object sender, EventArgs e)
-        {
-            displayView();
-        }
-
-        
     }
 }

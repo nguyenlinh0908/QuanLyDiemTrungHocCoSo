@@ -716,9 +716,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
             // 
             // btn_viewScore
             // 
-            this.btn_viewScore.Location = new System.Drawing.Point(1043, 61);
+            this.btn_viewScore.Location = new System.Drawing.Point(1242, 61);
             this.btn_viewScore.Name = "btn_viewScore";
-            this.btn_viewScore.Size = new System.Drawing.Size(350, 46);
+            this.btn_viewScore.Size = new System.Drawing.Size(151, 46);
             this.btn_viewScore.TabIndex = 6;
             this.btn_viewScore.Text = "Xem bảng điểm";
             this.btn_viewScore.UseVisualStyleBackColor = true;
