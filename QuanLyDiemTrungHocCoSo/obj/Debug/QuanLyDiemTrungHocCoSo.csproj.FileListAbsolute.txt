@@ -83,3 +83,4 @@ D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\Uno.UI.FluentThe
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\Uno.UI.FluentTheme.v1.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\Uno.UI.FluentTheme.v2.pdb
 D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\Uno.UI.Toolkit.pdb
+D:\CsharpProjects\QuanLyDiemTrungHocCoSo\QuanLyDiemTrungHocCoSo\obj\Debug\QuanLyDiemTrungHocCoSo.csproj.AssemblyReference.cache

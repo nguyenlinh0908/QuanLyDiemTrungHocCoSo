@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Windows.UI.Xaml.Controls;
@@ -167,5 +168,17 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 cbx_specialize.SelectedIndex = cbx_specialize.FindStringExact(dgv_teacher[6, e.RowIndex].Value.ToString());             
             }
         }
+        //private bool isFormatIdentityCard(string identityCard)
+        //{
+        //    bool isFormat = false;
+        //    string regexIdentifyCard = @"[0-9]{3}";
+        //    string regexPhoneNumber  = @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
+        //    string regexRemoveSpecialChar = @"[0-9a-zA-Z]";
+        //    if (Regex.IsMatch(identityCard, regexIdentifyCard))
+        //    {
+        //        isFormat = true;
+        //    }
+        //    return isFormat;
+        //}
     }
 }

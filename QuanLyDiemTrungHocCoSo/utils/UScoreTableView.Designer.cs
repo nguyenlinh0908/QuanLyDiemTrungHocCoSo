@@ -37,9 +37,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.btn_ViewScoreReport = new System.Windows.Forms.Button();
             this.btn_displayScore = new System.Windows.Forms.Button();
             this.lb_warningViewScore = new System.Windows.Forms.Label();
+            this.btn_showAllScoreOfClass = new System.Windows.Forms.Button();
             this.cl_HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_sNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_gioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Mon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_diemMieng2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +94,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_HoTen,
             this.cl_sNgaySinh,
             this.cl_gioiTinh,
+            this.cl_subject,
             this.cl_HocKy,
             this.cl_Mon,
             this.cl_diemMieng2,
@@ -138,6 +141,16 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.lb_warningViewScore.TabIndex = 7;
             this.lb_warningViewScore.Text = "Môn học này chưa cập nhật điểm";
             // 
+            // btn_showAllScoreOfClass
+            // 
+            this.btn_showAllScoreOfClass.Location = new System.Drawing.Point(503, 52);
+            this.btn_showAllScoreOfClass.Name = "btn_showAllScoreOfClass";
+            this.btn_showAllScoreOfClass.Size = new System.Drawing.Size(124, 32);
+            this.btn_showAllScoreOfClass.TabIndex = 8;
+            this.btn_showAllScoreOfClass.Text = "Hiện các môn";
+            this.btn_showAllScoreOfClass.UseVisualStyleBackColor = true;
+            this.btn_showAllScoreOfClass.Click += new System.EventHandler(this.btn_showAllScoreOfClass_Click);
+            // 
             // cl_HoTen
             // 
             this.cl_HoTen.DataPropertyName = "sHoTen";
@@ -161,6 +174,14 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.cl_gioiTinh.MinimumWidth = 6;
             this.cl_gioiTinh.Name = "cl_gioiTinh";
             this.cl_gioiTinh.Width = 125;
+            // 
+            // cl_subject
+            // 
+            this.cl_subject.DataPropertyName = "sTenMonHoc";
+            this.cl_subject.HeaderText = "Môn học";
+            this.cl_subject.MinimumWidth = 6;
+            this.cl_subject.Name = "cl_subject";
+            this.cl_subject.Width = 125;
             // 
             // cl_HocKy
             // 
@@ -219,17 +240,6 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.Column4.Width = 125;
             // 
             // cl_trungBinhMon
-            // btn_ViewScoreReport
-            // 
-            this.btn_ViewScoreReport.Location = new System.Drawing.Point(633, 52);
-            this.btn_ViewScoreReport.Name = "btn_ViewScoreReport";
-            this.btn_ViewScoreReport.Size = new System.Drawing.Size(155, 32);
-            this.btn_ViewScoreReport.TabIndex = 5;
-            this.btn_ViewScoreReport.Text = "Xuất báo cáo";
-            this.btn_ViewScoreReport.UseVisualStyleBackColor = true;
-            this.btn_ViewScoreReport.Click += new System.EventHandler(this.btn_ViewScoreReport_Click);
-            // 
-            // btn_clearFilter
             // 
             this.cl_trungBinhMon.DataPropertyName = "fTrungBinhMon";
             this.cl_trungBinhMon.HeaderText = "Trung bình môn";
@@ -242,6 +252,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_showAllScoreOfClass);
             this.Controls.Add(this.lb_warningViewScore);
             this.Controls.Add(this.btn_displayScore);
             this.Controls.Add(this.btn_ViewScoreReport);
@@ -269,9 +280,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private System.Windows.Forms.Button btn_ViewScoreReport;
         private System.Windows.Forms.Button btn_displayScore;
         private System.Windows.Forms.Label lb_warningViewScore;
+        private System.Windows.Forms.Button btn_showAllScoreOfClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_sNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_gioiTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_subject;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_HocKy;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Mon;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_diemMieng2;

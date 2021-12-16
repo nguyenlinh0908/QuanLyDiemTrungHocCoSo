@@ -247,6 +247,10 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     dgv_MyStudents.DataSource = myStudentsView;
                     
                 }
+                else
+                {
+                    btn_viewScore.Enabled = false;
+                }
             }
         }
 

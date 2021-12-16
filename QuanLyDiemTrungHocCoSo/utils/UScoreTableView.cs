@@ -9,6 +9,7 @@ namespace QuanLyDiemTrungHocCoSo.utils
     public partial class UScoreTableView : Form
     {
         private string classYearID;
+        private string titleReport = "";
         public UScoreTableView(string classYearID)
         {
             this.classYearID = classYearID;
@@ -80,28 +81,16 @@ namespace QuanLyDiemTrungHocCoSo.utils
                 }
             }
         }
-        private void btn_ViewScoreReport_Click(object sender, EventArgs e)
-        {
-            DataView myTableView = (DataView)dgv_scoreEachSubject.DataSource;
-            DataRowView dataRowViewStudents = myTableView[0];
-           
-                 
-            string semester = cbx_sesmeter.GetItemText(cbx_sesmeter.SelectedItem);
-            string subjectName = cbx_subject.GetItemText(cbx_subject.SelectedItem);
-          //  string semesterID = cbx_sesmeter.SelectedValue.ToString();
-          //  string subjectName = "";
-            //subjectName = dataRowViewStudents["sTenMonHoc"].ToString();
-            DataTable myTable = myTableView.ToTable();
-            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, subjectName + " " + semester + " các kỳ");// subjectName để thêm tên bảng điểm
-            uScoreSubjectReport.Show();
-        }
+       
         private void btn_displayScore_Click(object sender, EventArgs e)
         {
             model.Score score = new model.Score();
             String semesterID, subjectID;
             subjectID = cbx_subject.SelectedValue.ToString();
             semesterID = cbx_sesmeter.SelectedValue.ToString();
-
+            string semester = cbx_sesmeter.GetItemText(cbx_sesmeter.SelectedItem);
+            string subjectName = cbx_subject.GetItemText(cbx_subject.SelectedItem);
+            this.titleReport = subjectName + " " + semester;
             using (SqlConnection cnn = new SqlConnection(score.connectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("", cnn))
@@ -139,10 +128,63 @@ namespace QuanLyDiemTrungHocCoSo.utils
                             lb_warningViewScore.Text = "Môn học này chưa được cập nhật điểm";
                             lb_warningViewScore.ForeColor = Color.FromArgb(235, 52, 52);
                             lb_warningViewScore.Show();
+                            dgv_scoreEachSubject.AutoGenerateColumns = false;
+                            dgv_scoreEachSubject.ReadOnly = true;
                             dgv_scoreEachSubject.DataSource = null;
                             btn_ViewScoreReport.Enabled = false;
                         }
 
+                    }
+                }
+            }
+        }
+
+        private void btn_ViewScoreReport_Click(object sender, EventArgs e)
+        {
+            DataView myTableView = (DataView)dgv_scoreEachSubject.DataSource;
+            DataTable myTable = myTableView.ToTable();
+            utils.UScoreSubjectReport uScoreSubjectReport = new UScoreSubjectReport(myTable, this.titleReport);// subjectName để thêm tên bảng điểm
+            uScoreSubjectReport.Show();
+        }
+
+        private void btn_showAllScoreOfClass_Click(object sender, EventArgs e)
+        {
+            model.Score score = new model.Score();
+            string semester = cbx_sesmeter.GetItemText(cbx_sesmeter.SelectedItem);
+            string subjectName = cbx_subject.GetItemText(cbx_subject.SelectedItem);
+            this.titleReport = "tất cả các môn";
+            using (SqlConnection cnn = new SqlConnection(score.connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("", cnn))
+                {
+                    using (SqlDataAdapter adp = new SqlDataAdapter(cmd))
+                    {
+                        cnn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "procScoreOfClass";
+                        cmd.Parameters.AddWithValue("@id", this.classYearID);
+                        DataTable scoreEachSubject = new DataTable("tblDiem");
+                        adp.Fill(scoreEachSubject);
+                        cnn.Close();                        
+                        if (scoreEachSubject.Rows.Count > 0)
+                        {
+                            DataView scoreOfClassView = new DataView(scoreEachSubject);
+                            dgv_scoreEachSubject.AutoGenerateColumns = false;
+                            dgv_scoreEachSubject.ReadOnly = true;
+                            dgv_scoreEachSubject.DataSource = scoreOfClassView;
+                            lb_warningViewScore.Hide();
+                            btn_ViewScoreReport.Enabled = true;
+                        }
+                        else
+                        {
+                            lb_warningViewScore.Text = "Chưa có học sinh nào có điểm";
+                            lb_warningViewScore.ForeColor = Color.FromArgb(235, 52, 52);
+                            lb_warningViewScore.Show();
+                            dgv_scoreEachSubject.AutoGenerateColumns = false;
+                            dgv_scoreEachSubject.ReadOnly = true;
+                            dgv_scoreEachSubject.DataSource = null;
+                            btn_ViewScoreReport.Enabled = false;
+                        }
                     }
                 }
             }

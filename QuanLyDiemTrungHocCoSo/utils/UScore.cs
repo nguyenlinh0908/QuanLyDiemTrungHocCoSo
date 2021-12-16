@@ -88,8 +88,8 @@ namespace QuanLyDiemTrungHocCoSo.utils
                     {
                         cnn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "proGetStudentsOfSubjectClass";
-                        cmd.Parameters.AddWithValue("@id", this.subjectClass);
+                        cmd.CommandText = "procGetStudentsOfClassSubject";
+                        cmd.Parameters.AddWithValue("@id", this.classSchoolYear);
                         DataTable studentsOfSubjectClass = new DataTable("tblStudentsOfSubjectClass");
                         adp.Fill(studentsOfSubjectClass);
                         cnn.Close();
@@ -301,9 +301,18 @@ namespace QuanLyDiemTrungHocCoSo.utils
 
             int idCode = rnd.Next(999);
             id = String.Format("s{0}", idCode.ToString());
+            
             model.Score score = new model.Score(id, semester, student_class, class_subject, fastScore1, fastScore2, _15Score1, _15Score2, _45Score, semesterGrades);
-            score.addObject();
-            this.Alert("Success Alert", Form_Alert.enmType.Success);
+            bool exitsScore = score.isExistScore();
+            if (exitsScore == true)
+            {
+                score.addObject();
+                this.Alert("Success Alert", Form_Alert.enmType.Success);
+            }
+            else
+            {
+                this.Alert("Đã tồn tại điểm!", Form_Alert.enmType.Error);
+            }
             displayScore();
         }
         private void displayScore()

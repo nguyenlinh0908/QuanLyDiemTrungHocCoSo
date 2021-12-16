@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,9 +27,9 @@ namespace QuanLyDiemTrungHocCoSo.utils
         private void btn_signIn_Click(object sender, EventArgs e)
         {
             string username = tb_username.Text.Trim();
-            string pasword = tb_password.Text.Trim();
+            string pasword = tb_password.Text.Trim();           
             model.Account account = new model.Account();
-            using(DataTable myAccounts = account.signInProcess(username, pasword))
+            using (DataTable myAccounts = account.signInProcess(username, pasword))
             {
                 if (myAccounts != null)
                 {
@@ -42,26 +43,24 @@ namespace QuanLyDiemTrungHocCoSo.utils
                         {
                             case "q0": // admin permission
                                 homePage = new utils.UHomePage(permission, accountID);
-                                this.Hide();
-                                homePage.Show();                             
+                               // this.Hide();
+                                homePage.Show();
                                 break;
                             case "q1": //user permission
                                 homePage = new utils.UHomePage(permission, accountID);
-                                this.Hide();
-                                homePage.Show();                             
+                                //this.Hide();
+                                homePage.Show();
                                 break;
                             default:
-
                                 break;
                         }
                     }
                 }
                 else
                 {
-                   this.Alert("Login Fail", Form_Alert.enmType.Warning);
+                    this.Alert("Login Fail", Form_Alert.enmType.Warning);
                 }
             }
-
         }
 
         private void USignIn_Load(object sender, EventArgs e)
@@ -75,11 +74,11 @@ namespace QuanLyDiemTrungHocCoSo.utils
             {
                 e.Cancel = true;
                 tb_username.Focus();
-                ErrorProvider error = new ErrorProvider();         
+                ErrorProvider error = new ErrorProvider();
                 error.SetError(tb_username, "Please enter your user name!");
             }
         }
-
+       
         private void tb_password_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(tb_password.Text))

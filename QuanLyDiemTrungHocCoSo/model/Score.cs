@@ -96,5 +96,34 @@ namespace QuanLyDiemTrungHocCoSo.model
                 }
             }
         }  
+        public bool isExistScore()
+        {
+            bool exits = true;
+            using (SqlConnection cnn = new SqlConnection(connectionString)) // var connectionString get from abstract class MainService
+            {
+                using (SqlCommand cmd = new SqlCommand("", cnn))
+                {
+                    using (SqlDataAdapter adapterObject = new SqlDataAdapter(cmd))
+                    {
+                        cnn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "procExitsScore";
+                        cmd.Parameters.AddWithValue("@student_class", this.student_class_ID);
+                        cmd.Parameters.AddWithValue("@class_subject", this.class_subject_ID);
+                        cmd.Parameters.AddWithValue("@semester", this.semesterID);
+                        cmd.ExecuteNonQuery();
+                        cnn.Close();
+                        DataTable dataTableObject = new DataTable("tblExitsScore");
+                        adapterObject.Fill(dataTableObject);
+                        if(dataTableObject.Rows.Count >= 1)
+                        {
+                            exits = false;
+                            return exits;
+                        }
+                    }
+                }
+            }
+            return exits;
+        }
     }
 }
